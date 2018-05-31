@@ -1,3 +1,0 @@
-acuerdosTomados.html es vista de Admin
-historialDeCuotas.html es vista de Usuario
-calendarAdmin.html no tiene otra vista porque todos pueden modificarlo, eso c:
