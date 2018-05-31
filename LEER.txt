@@ -1,5 +1,0 @@
-Para probarlo entrar a la siguiente direccion: 
-
-Sistema SAPO\production 
-
-y luego probar las vistas de admin con indexAdmin y las vistas de usuario con indexUser

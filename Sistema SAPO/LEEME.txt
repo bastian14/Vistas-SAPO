@@ -1,0 +1,10 @@
+Para probarlo ir a la siguiente direccion: 
+Sistema SAPO\production 
+
+Datos Admin: 
+lol@lol.cl 
+pass: 1234
+
+Datos User: 
+pert@pert.cl 
+pass: 4321
