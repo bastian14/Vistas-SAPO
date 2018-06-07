@@ -18,7 +18,7 @@
     <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-	
+
     <!-- bootstrap-progressbar -->
     <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
@@ -60,8 +60,8 @@
               <div class="menu_section">
                 <h3>Menú</h3>
                 <ul class="nav side-menu">
-                  <li><a href="avisosAdmin.html"><i class="fa fa-bell"></i> Avisos </a>
-                   
+                  <!-- <li><a href="avisosAdmin.html"><i class="fa fa-bell"></i> Avisos </a> -->
+                  <li><a onclick="cargar('avisosAdmin');"><i class="fa fa-bell"></i> Avisos </a>
                   </li>
                   <li><a><i class="fa fa-edit"></i> Reuniones <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -74,18 +74,18 @@
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> Historial de Cuotas</a>
-                   
+
                   </li>
                   <li><a><i class="fa fa-table"></i> Situación Académica <span class="fa fa-chevron-down"></span></a>
                   	<ul class="nav child_menu">
                       <li><a href="notasAdmin.html">Notas Parciales</a></li>
-                      <li><a href="anotacionesAdmin.html">Anotaciones</a></li> 
-                    </ul>  
+                      <li><a href="anotacionesAdmin.html">Anotaciones</a></li>
+                    </ul>
                   </li>
-                  
+
                 </ul>
               </div>
-            
+
 
             </div>
             <!-- /sidebar menu -->
@@ -110,7 +110,7 @@
 
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
-                  
+
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="javascript:;"> Profile</a></li>
                     <li>
@@ -124,7 +124,7 @@
                   </ul>
                 </li>
 
-               
+
               </ul>
             </nav>
           </div>
@@ -132,9 +132,7 @@
         <!-- /top navigation -->
 
         <!-- page content -->
-        <div class="right_col" role="main">
-            <center><h1>BIENVENIDOS A SAPO</h1> </center>
-            <p style="text-align: justify;">SAPO es un sistema de gestión escolar que permite a los apoderados visualizar información importante acerca de sus pupilos y las actividades realizadas en el colegio, a través de esta plataforma el profesor administrador podrá publicar información referente a las calificaciones de su pupilo, acuerdos tomados en las reuniones de apoderados, anotaciones en el libro de clases, entre otras cosas.</p> 
+        <div class="right_col" id="contenido" role="main">
 
         </div>
         <!-- /page content -->
@@ -190,6 +188,6 @@
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
-	
+    <script src="js/funciones.js"></script>
   </body>
 </html>
