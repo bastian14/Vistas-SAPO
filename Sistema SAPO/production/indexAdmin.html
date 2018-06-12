@@ -53,9 +53,7 @@
                 <h3>Menú Principal</h3>
                 <ul class="nav side-menu">
                   <!-- <li><a href="avisosAdmin.html"><i class="fa fa-bell"></i> Avisos </a> -->
-                  <li><a onclick="cargar('avisosAdmin');">
-                    <i class="fa fa-bell"></i>Avisos</a>
-                  </li>
+                  <li><a onclick="cargar('avisosAdmin');"><i class="fa fa-bell"></i>Avisos</a></li>
                   <li><a><i class="fa fa-edit"></i>Reuniones<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a onclick="cargar('calendarAdmin2');">Calendario</a></li>
@@ -66,8 +64,7 @@
                       <li><a href="form_buttons.html">Form Buttons</a></li>-->
                     </ul>
                   </li>
-                  <li><a onclick="cargar('historialDeCuotasAdmin');"><i class="fa fa-desktop"></i> Historial de Cuotas</a>
-                  </li>
+                  <li><a onclick="cargar('historialDeCuotasAdmin');"><i class="fa fa-desktop"></i> Historial de Cuotas</a></li>
                   <li><a><i class="fa fa-table"></i>Situación Académica<span class="fa fa-chevron-down"></span></a>
                   	<ul class="nav child_menu">
                       <li><a onclick="cargar('notasAdmin');">Notas Parciales</a></li>
@@ -78,7 +75,7 @@
               </div>
             </div>
             <!-- /sidebar menu -->
-            <!-- /menu footer buttons -->
+            <!-- menu footer buttons -->
             <div class="sidebar-footer hidden-small">
               <a style ="width: 100%" data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
@@ -91,10 +88,15 @@
         <!-- top navigation -->
         <div class="top_nav">
           <div class="nav_menu">
-            <nav>
-              <div class="nav toggle">
-                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            <!--<nav>-->
+              <div class="nav toggle"> 
+                <a id="menu_toggle">
+                  <i class="fa fa-bars">
+                    <!--BOTON DE 3 LINEAS HORIZONTALES-->
+                  </i>
+                </a>
               </div>
+            <!-- ESTO NO APARECE
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -109,22 +111,22 @@
                     <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i>Log Out</a></li>
                   </ul>
                 </li>
-              </ul>
-            </nav>
+              </ul>-->
+            <!--</nav>-->
           </div>
         </div>
         <!-- /top navigation -->
 
         <!-- page content -->
         <div class="right_col" id="contenido" role="main">
-
+          
         </div>
         <!-- /page content -->
 
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            SAPO - Sistema de Apoderados <a href="https://colorlib.com">Colorlib</a>
+            SAPO - Sistema de Apoderados <a href="https://www.google.cl/">Google</a>
           </div>
           <div class="clearfix"></div>
         </footer>
