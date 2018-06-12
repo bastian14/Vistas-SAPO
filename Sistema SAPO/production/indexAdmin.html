@@ -6,10 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="images/sapo-icon.png" type="image/ico" />
-
-    <title>SAPO </title>
-
+	  <link rel="icon" href="images/sapo-icon.png" type="image/ico" />
+    <title>SAPO</title>
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -18,14 +16,12 @@
     <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-
     <!-- bootstrap-progressbar -->
     <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
     <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
     <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
   </head>
@@ -36,15 +32,13 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="indexAdmin.html" class="site_title"><img src="images/sapo-icon.png"><span>SAPO</span></a>
+              <a href="indexAdmin.html" class="site_title"><img src="images/sapo-icon.png"><span>S.APO</span></a>
             </div>
-
             <div class="clearfix"></div>
-
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="images/picture.jpg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Bienvenido</span>
@@ -52,21 +46,20 @@
               </div>
             </div>
             <!-- /menu profile quick info -->
-
             <br />
-
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <h3>Menú</h3>
+                <h3>Menú Principal</h3>
                 <ul class="nav side-menu">
                   <!-- <li><a href="avisosAdmin.html"><i class="fa fa-bell"></i> Avisos </a> -->
-                  <li><a onclick="cargar('avisosAdmin');"><i class="fa fa-bell"></i> Avisos </a>
+                  <li><a onclick="cargar('avisosAdmin');">
+                    <i class="fa fa-bell"></i>Avisos</a>
                   </li>
-                  <li><a><i class="fa fa-edit"></i> Reuniones <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-edit"></i>Reuniones<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a onclick="cargar('calendarAdmin2');">Calendario</a></li>
-                      <li><a onclick="cargar('acuerdosTomados');">Acuerdos Tomados</a></li>
+                      <li><a onclick="cargar('acuerdosTomadosAdmin');">Acuerdos Tomados</a></li>
                       <!--<li><a href="form_validation.html">Votaciones</a></li>
                       <li><a href="form_wizards.html">Form Wizard</a></li>
                       <li><a href="form_upload.html">Form Upload</a></li>
@@ -74,22 +67,17 @@
                     </ul>
                   </li>
                   <li><a onclick="cargar('historialDeCuotasAdmin');"><i class="fa fa-desktop"></i> Historial de Cuotas</a>
-
                   </li>
-                  <li><a><i class="fa fa-table"></i> Situación Académica <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-table"></i>Situación Académica<span class="fa fa-chevron-down"></span></a>
                   	<ul class="nav child_menu">
                       <li><a onclick="cargar('notasAdmin');">Notas Parciales</a></li>
                       <li><a onclick="cargar('anotacionesAdmin');">Anotaciones</a></li>
                     </ul>
                   </li>
-
                 </ul>
               </div>
-
-
             </div>
             <!-- /sidebar menu -->
-
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
               <a style ="width: 100%" data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
@@ -107,12 +95,10 @@
               <div class="nav toggle">
                 <a id="menu_toggle"><i class="fa fa-bars"></i></a>
               </div>
-
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
-
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Profile</a></li>
+                    <li><a href="javascript:;">Profile</a></li>
                     <li>
                       <a href="javascript:;">
                         <span class="badge bg-red pull-right">50%</span>
@@ -120,11 +106,9 @@
                       </a>
                     </li>
                     <li><a href="javascript:;">Help</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i>Log Out</a></li>
                   </ul>
                 </li>
-
-
               </ul>
             </nav>
           </div>
