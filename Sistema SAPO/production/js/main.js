@@ -9,7 +9,7 @@ function ingresar(){
     console.log(pass);
     console.log(email);
     $.ajax({
-    url: 'http://transgasa2018.000webhostapp.com/login.php',//cambiar link
+    url: 'http://sapo2018.000webhostapp.com/login.php',//cambiar link
     method: 'POST',
     dataType: 'json',
     data: {
