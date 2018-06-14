@@ -84,3 +84,9 @@ function borrar(id){
     }
   }
 }
+
+
+function editar(id){
+  localStorage.setItem("idAvisoEdit", id);
+  $("#contenido").load("editarAviso.html");
+}
