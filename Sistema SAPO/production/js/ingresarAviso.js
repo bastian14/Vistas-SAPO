@@ -31,6 +31,7 @@ function subirAviso(){
           if(data.resp){
             alert("AVISO INGRESADO CON EXITO");
             $("#contenido").load("avisosAdmin.html");
+            //document.location="indexAdmin.html";
             }else{
               console.log(data.resp2);
               alert("ERROR");
