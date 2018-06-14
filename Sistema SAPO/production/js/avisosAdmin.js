@@ -50,3 +50,5 @@ function cargarAvisos(){
     document.location="login.html"
   }
 }
+
+document.addEventListener("DOMContentLoaded", cargarAvisos())
