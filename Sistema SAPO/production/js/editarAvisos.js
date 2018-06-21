@@ -57,17 +57,16 @@ function cargarCursos(){
           var idCurso;
           var cantidad = data.cantidad;
 
-          for (var i = cantidad-1; i >= 0; i--) {
-            console.log(data.datos[i].grado);
-            grado = data.datos[i].grado;
-            idCurso = data.datos[i].idCurso;
-            //console.log(idCurso);
-            text_html ='<option value="'+idCurso+'">'+grado+'</option>';
+          $.each( data.datos, function( key, value ) {
+            console.log(value);
+            text_html ='<option value="'+value.idCurso+'">'+value.grado+'</option>';
             $('#cursos').append(text_html);
-          }
+          });
+
         }else{
           alert('ERROR');
         }
+        cargarDatos();
       },
       error: function(){
         alert('WS NO RESPONDE');
