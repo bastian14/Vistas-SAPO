@@ -13,7 +13,7 @@ function subirAviso(){
   console.log(fecha);
   console.log(curso);
   if(email !== null && pass !== null){
-    if (titulo !== null && curso !== null && fecha !== null && contenido !== null) {
+    if (titulo !== null && curso !== "noSeleccionado" && fecha !== null && contenido !== null) {
 
       $.ajax({
         url: 'http://sapo2018.000webhostapp.com/ingresarAviso.php',
@@ -73,9 +73,9 @@ function cargarCursos(){
             grado = data.datos[i].grado;
             idCurso = data.datos[i].idCurso;
             //console.log(idCurso);
-            text_html ='<option value="'+idCurso+'">'+grado+'</option>';
-            $('#cursos').append(text_html);
+            text_html +='<option value="'+idCurso+'">'+grado+'</option>';
           }
+          $('#cursos').append(text_html);
         }else{
           alert('ERROR');
         }

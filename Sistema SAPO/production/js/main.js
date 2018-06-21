@@ -4,7 +4,6 @@ function ingresar(){
   var email = $('#email').val();
   var pass = $('#pass').val();
 
-
   if(email.length > 0 && pass.length > 0){
     console.log(pass);
     console.log(email);
@@ -18,6 +17,20 @@ function ingresar(){
     },
     success: function(data){
       if(data.resp){
+        //$.toast("Ingreso exitoso")
+
+        $.toast({
+          text : "<h2>Ingreso exitoso</h2>",
+          showHideTransition : 'success',  // It can be plain, fade or slide
+          bgColor : 'green',              // Background color for toast
+          textColor : '#eee',            // text color
+          allowToastClose : false,       // Show the close button or not
+          hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+          stack : 5,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+          textAlign : 'left',            // Alignment of text i.e. left, right, center
+          position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+        })
+
         localStorage.setItem("email", $('#email').val());
         localStorage.setItem("pass", $('#pass').val());
         switch (data.perfil) { //el servicio web devuelve el perfil del usuario y segun este se inicia el sistema
@@ -35,15 +48,51 @@ function ingresar(){
         }
       }else{
         $("#preloader").hide();
-        alert('Datos ingresados incorrectos');
+        //alert('Datos ingresados incorrectos');
+        $.toast({
+          text : "<h2>Las redenciales ingresadas son incorrectas</h2>",
+          showHideTransition : 'slide',  // It can be plain, fade or slide
+          icon: 'warning',
+          bgColor : 'dark-red',              // Background color for toast
+          textColor : '#eee',            // text color
+          allowToastClose : false,       // Show the close button or not
+          hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+          stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+          textAlign : 'left',            // Alignment of text i.e. left, right, center
+          position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+        })
       }
     },
     error: function(){
       $("#preloader").hide();
-      alert('El WS no ha respondido');
+      //alert('El WS no ha respondido');
+      $.toast({
+        text : "<h2>El WS no ha respondido</h2>",
+        showHideTransition : 'slide',  // It can be plain, fade or slide
+        icon: 'error',
+        bgColor : 'dark-red',              // Background color for toast
+        textColor : '#eee',            // text color
+        allowToastClose : false,       // Show the close button or not
+        hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+        stack : 5,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+        textAlign : 'left',            // Alignment of text i.e. left, right, center
+        position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+      })
     }
   });
   }else{
-    alert('Campos de información vacios');
+    //alert('Campos de información vacios');
+    $.toast({
+      text : "<h2>Campos de información vacios</h2>",
+      showHideTransition : 'slide',  // It can be plain, fade or slide
+      icon: 'warning',
+      bgColor : 'dark-red',              // Background color for toast
+      textColor : '#eee',            // text color
+      allowToastClose : false,       // Show the close button or not
+      hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+      stack : 5,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+      textAlign : 'left',            // Alignment of text i.e. left, right, center
+      position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+    })
   }
 }
