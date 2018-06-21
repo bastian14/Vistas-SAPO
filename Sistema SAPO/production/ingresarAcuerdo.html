@@ -144,26 +144,14 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="curso">Curso<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control">
-                            <option>Seleccione curso</option>
-                            <option>1 básico</option>
-                            <option>2 básico</option>
-                            <option>3 básico</option>
-                            <option>4 básico</option>
-                            <option>5 básico</option>
-                            <option>6 básico</option>
-                            <option>7 básico</option>
-                            <option>8 básico</option>
-                            <option>1 medio</option>
-                            <option>2 medio</option>
-                            <option>3 medio</option>
-                            <option>4 medio</option>
+                          <select class="form-control" id="cursos">
+                            <option value="noSeleccionado">Seleccione un curso</option>
                           </select>
                         </div>
                       </div> 
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="titulo">Fecha<span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fecha">Fecha<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input type="text" required="required" class="form-control has-feedback-left" id="single_cal1" aria-describedby="inputSuccess2Status">
@@ -175,7 +163,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contenido">Descripción<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <textarea class="form-control" rows="5" placeholder="Escriba aqui el contenido de la anotación" col-md-7 col-xs-12></textarea>
+                          <textarea class="form-control" id ="contenidoAcuerdo" rows="5" placeholder="Escriba aqui el contenido de la anotación" col-md-7 col-xs-12></textarea>
                         </div>
                       </div>
                     
