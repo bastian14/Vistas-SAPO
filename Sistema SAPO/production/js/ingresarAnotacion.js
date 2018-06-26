@@ -1,9 +1,11 @@
 function subirAviso(){
   var titulo = $("#first-name").val();
-  var curso = $("#cursos").val();
+  var curso = $("#cursosAnotaciones").val();
+  var alumno = $("#alumnosAnotaciones").val();
   var fecha = new Date();
   fecha = $("#single_cal1").val();
-  var contenido = $("#contenidoAviso").val();
+  var tipoDeAnotacion = $("#tipoDeAnotacion").val();
+  var contenido = $("#contenidoAnotaciones").val();
 
   var email = localStorage.getItem("email");
   var pass = localStorage.getItem("pass");
@@ -13,8 +15,7 @@ function subirAviso(){
   console.log(fecha);
   console.log(curso);
   if(email !== null && pass !== null){
-    if (titulo !== null && curso !== "noSeleccionado" && fecha !== null && contenido !== null) {
-
+    if (titulo !== null && curso !== "noSeleccionado" && alumno !== "noSeleccionado" && fecha !== null && tipoDeAnotacion !== "noSeleccionado" && contenido !== null) {
       $.ajax({
         url: 'http://sapo2018.000webhostapp.com/ingresarAviso.php',
         method: 'POST',
@@ -64,13 +65,17 @@ function cargarCursosIngresarAvisos(){
       },
       success: function(data){
         if(data.resp){
+          var grado;
+          var idCurso;
+          var cantidad = data.cantidad;
 
-          $.each( data.datos, function( key, value ) {
-            console.log(value);
-            text_html ='<option value="'+value.idCurso+'">'+value.grado+'</option>';
-            $('#cursos').append(text_html);
-          });
-
+          for (var i = cantidad-1; i >= 0; i--) {
+            console.log(data.datos[i].grado);
+            grado = data.datos[i].grado;
+            idCurso = data.datos[i].idCurso;
+            //console.log(idCurso);
+            text_html +='<option value="'+idCurso+'">'+grado+'</option>';
+          }
           $('#cursos').append(text_html);
         }else{
           alert('ERROR');
