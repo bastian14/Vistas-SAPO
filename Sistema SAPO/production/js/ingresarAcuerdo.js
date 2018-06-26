@@ -13,7 +13,7 @@ function subirAcuerdo(){
   console.log(email);
   console.log(pass);
   if(email !== null && pass !== null){
-    if (curso !== "noSeleccionado" && fecha !== null && contenido !== null) {
+    if (curso != "noSeleccionado" && fecha != null && contenido != null) {
 
       $.ajax({
         url: 'https://sapo2018.000webhostapp.com/IngresarAcuerdo.php',
@@ -31,7 +31,7 @@ function subirAcuerdo(){
             alert("ACUERDO INGRESADO CON EXITO");
             $("#contenido").load("acuerdosTomadosAdmin.html");
             //document.location="indexAdmin.html";
-             cargar('acuerdosTomadosAdmin');
+             //cargar('acuerdosTomadosAdmin');
             }else{
               console.log(data.resp2);
               alert("ERROR");
