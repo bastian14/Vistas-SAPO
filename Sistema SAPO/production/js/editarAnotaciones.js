@@ -1,4 +1,4 @@
-function cargarDatos(){
+function cargarDatosEditarAnotaciones(){
   var email = localStorage.getItem("email");
   var pass = localStorage.getItem("pass");
   var id = localStorage.getItem("idAcuerdoEdit");
@@ -43,7 +43,7 @@ function cargarDatos(){
   }
 }
 
-function cargarCursos(){
+function cargarCursosEditarAnotaciones(){
   if(localStorage.getItem("email") !== null && localStorage.getItem("pass") !== null){
     var email = localStorage.getItem("email");
     var pass = localStorage.getItem("pass");

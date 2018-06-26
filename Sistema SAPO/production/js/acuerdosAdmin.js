@@ -1,7 +1,7 @@
 function cargarAcuerdos(){
   var email = localStorage.getItem("email");
   var pass = localStorage.getItem("pass");
-  
+
   if(email !== null && pass !== null){
 
     $.ajax({
@@ -33,8 +33,8 @@ function cargarAcuerdos(){
             text_html +='<td>'+curso+'</td>';
             text_html +='<td>'+fecha+'</td>';
             text_html +='<td>'+contenido+'</td>';
-            text_html +='<td><button onclick="editar(\''+idAcuerdo+'\')" type="button" class="btn btn-primary">Editar</button></td>';
-            text_html +='<td><button onclick="borrar(\''+idAcuerdo+'\')" type="button" class="btn btn-primary">Eliminar</button></td>';
+            text_html +='<td><button onclick="editarAcuerdos(\''+idAcuerdo+'\')" type="button" class="btn btn-primary">Editar</button></td>';
+            text_html +='<td><button onclick="borrarAcuerdos(\''+idAcuerdo+'\')" type="button" class="btn btn-primary">Eliminar</button></td>';
             text_html +='<tr>';
             $('#tablaAcuerdos').append(text_html);
           }
@@ -52,7 +52,7 @@ function cargarAcuerdos(){
   }
 }
 
-function borrar(id){
+function borrarAcuerdos(id){
   console.log(id);
   var email = localStorage.getItem("email");
   var pass = localStorage.getItem("pass");
@@ -87,7 +87,7 @@ function borrar(id){
 }
 
 
-function editar(id){
+function editarAcuerdos(id){
   localStorage.setItem("idAvisoEdit", id);
   $("#contenido").load("editarAcuerdo.html");
 }

@@ -32,13 +32,13 @@ function cargarAvisos(){
             text_html +='<td>'+curso+'</td>';
             text_html +='<td>'+fecha+'</td>';
             text_html +='<td>'+contenido+'</td>';
-            text_html +='<td><button onclick="editar(\''+idAviso+'\')" type="button" class="btn btn-primary">Editar</button></td>';
-            text_html +='<td><button onclick="borrar(\''+idAviso+'\')" type="button" class="btn btn-primary">Eliminar</button></td>';
+            text_html +='<td><button onclick="editarAviso(\''+idAviso+'\')" type="button" class="btn btn-primary">Editar</button></td>';
+            text_html +='<td><button onclick="borrarAviso(\''+idAviso+'\')" type="button" class="btn btn-primary">Eliminar</button></td>';
             text_html +='<tr>';
             $('#tablaAvisos').append(text_html);
           }
         }else{
-          //alert('ERROR'); 
+          //alert('ERROR');
           $.toast({
             text : "<h2>ERROR</h2>",
             showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -50,12 +50,11 @@ function cargarAvisos(){
             stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
             textAlign : 'left',            // Alignment of text i.e. left, right, center
             position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
-        })
-      }
+          })
         }
       },
       error: function(){
-        //alert('ERROR 2'); 
+        //alert('ERROR 2');
         $.toast({
             text : "<h2>ERROR 2</h2>",
             showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -88,7 +87,7 @@ function cargarAvisos(){
   }
 }
 
-function borrar(id){
+function borrarAviso(id){
   console.log(id);
   var email = localStorage.getItem("email");
   var pass = localStorage.getItem("pass");
@@ -105,7 +104,7 @@ function borrar(id){
         },
         success: function(data){
           if(data.resp){
-            //alert("Aviso eliminado con exito."); 
+            //alert("Aviso eliminado con exito.");
             $.toast({
               text : "<h2>Aviso eliminado con exito</h2>",
               showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -120,7 +119,7 @@ function borrar(id){
             })
             $("#contenido").load("avisosAdmin.html");
           }else{
-            //alert('ERROR'); 
+            //alert('ERROR');
             $.toast({
               text : "<h2>ERROR</h2>",
               showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -172,7 +171,7 @@ function borrar(id){
 }
 
 
-function editar(id){
+function editarAviso(id){
   localStorage.setItem("idAvisoEdit", id);
   $("#contenido").load("editarAviso.html");
 }

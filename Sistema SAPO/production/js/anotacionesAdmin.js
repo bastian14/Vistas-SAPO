@@ -38,8 +38,8 @@ function cargarAnotaciones(){
             text_html +='<td>'+fecha+'</td>';
             text_html +='<td>'+tipo+'</td>';
             text_html +='<td>'+contenido+'</td>';
-            text_html +='<td><button onclick="editar(\''+idAnotacion+'\')" type="button" class="btn btn-primary">Editar</button></td>';
-            text_html +='<td><button onclick="borrar(\''+idAnotacion+'\')" type="button" class="btn btn-primary">Eliminar</button></td>';
+            text_html +='<td><button onclick="editarAnotaciones(\''+idAnotacion+'\')" type="button" class="btn btn-primary">Editar</button></td>';
+            text_html +='<td><button onclick="borborrarAnotacionesrar(\''+idAnotacion+'\')" type="button" class="btn btn-primary">Eliminar</button></td>';
             text_html +='<tr>';
             $('#tablaAnotaciones').append(text_html);
           }
@@ -57,7 +57,7 @@ function cargarAnotaciones(){
   }
 }
 
-function borrar(id){
+function borrarAnotaciones(id){
   console.log(id);
   var email = localStorage.getItem("email");
   var pass = localStorage.getItem("pass");
@@ -92,7 +92,7 @@ function borrar(id){
 }
 
 
-function editar(id){
+function editarAnotaciones(id){
   localStorage.setItem("idAanotacionEdit", id);
   $("#contenido").load("editarAnotacion.html");
 }
