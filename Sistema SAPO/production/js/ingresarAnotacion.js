@@ -1,28 +1,33 @@
-function subirAviso(){
-  var titulo = $("#first-name").val();
-  var curso = $("#cursosAnotaciones").val();
-  var alumno = $("#alumnosAnotaciones").val();
+function subirAnotacion(){
+  var titulo = $("#titulo").val();
+  var curso = $("#cursos").val();
+  var alumno = $("#alumno").val();
+  var tipo = $("#tipo").val();
   var fecha = new Date();
   fecha = $("#single_cal1").val();
-  var tipoDeAnotacion = $("#tipoDeAnotacion").val();
-  var contenido = $("#contenidoAnotaciones").val();
+  var contenido = $("#contenidoAnotacion").val();
 
   var email = localStorage.getItem("email");
   var pass = localStorage.getItem("pass");
   console.log("guardo los datos");
   console.log(titulo);
+  console.log(alumno);
+  console.log(tipo);
   console.log(contenido);
   console.log(fecha);
   console.log(curso);
   if(email !== null && pass !== null){
-    if (titulo !== null && curso !== "noSeleccionado" && alumno !== "noSeleccionado" && fecha !== null && tipoDeAnotacion !== "noSeleccionado" && contenido !== null) {
+    if (titulo !== null && curso !== "noSeleccionado" && fecha !== null && contenido !== null alumno !== null tipo !== null) {
+
       $.ajax({
-        url: 'http://sapo2018.000webhostapp.com/ingresarAviso.php',
+        url: 'http://sapo2018.000webhostapp.com/ingresarAnotacion.php',
         method: 'POST',
         dataType: 'json',
         data: {
           titulo: titulo,
           curso: curso,
+          alumno: alumno,
+          tipo: tipo,
           fecha: fecha,
           contenido: contenido,
           email: email,
@@ -30,6 +35,7 @@ function subirAviso(){
         },
         success: function(data){
           if(data.resp){
+<<<<<<< HEAD
             //alert("AVISO INGRESADO CON EXITO");
             $.toast({
               text : "<h2>ACUERDO INGRESADO CON EXITO</h2>",
@@ -44,6 +50,10 @@ function subirAviso(){
               position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
             });
             $("#contenido").load("avisosAdmin.html");
+=======
+            alert("ANOTACION INGRESADA CON EXITO");
+            $("#contenido").load("anotacionesAdmin.html");
+>>>>>>> e0d9ee22a91c5b3ab92ad748c6e80a6d3dcbf4a9
             //document.location="indexAdmin.html";
             }else{
               console.log(data.resp2);
@@ -111,7 +121,7 @@ function subirAviso(){
     }
 }
 
-function cargarCursosIngresarAvisos(){
+function cargarCursos(){
   if(localStorage.getItem("email") !== null && localStorage.getItem("pass") !== null){
     var email = localStorage.getItem("email");
     var pass = localStorage.getItem("pass");

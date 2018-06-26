@@ -1,6 +1,7 @@
+<!-- page content -->
           <div class="x_panel">
                   <div class="x_title">
-                    <h2>Ingresar Aviso</h2>
+                    <h2>Editar Anotacion</h2>
 
                     <div class="clearfix"></div>
                   </div>
@@ -9,10 +10,10 @@
                     <div id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="titulo">Título<span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="titulo">Titulo<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="titulo" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
@@ -26,6 +27,14 @@
                       </div>
 
                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="alumno">Alumno<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="alumno" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="titulo">Fecha<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
@@ -33,24 +42,36 @@
                         </div>
                       </div>
 
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="titulo">Tipo<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="tipo" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+
                      <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contenido">Contenido<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <textarea class="form-control" id="contenidoAviso" rows="5" placeholder="Escriba aqui el contenido del aviso" col-md-7 col-xs-12></textarea>
+                          <textarea class="form-control" id="contenidoAnotacion" rows="5" placeholder="Escriba aqui el contenido del acuerdo" col-md-7 col-xs-12></textarea>
                         </div>
                       </div>
 
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-primary" onclick="cargar('avisosAdmin');" type="button">Cancelar</button>
-                          <button class="btn btn-primary" type="reset">Limpiar</button>
-                          <button onclick="subirAviso();" class="btn btn-success">Ingresar</button>
+                          <button class="btn btn-primary" onclick="cargar('anotacionesAdmin');" type="button">Cancelar</button>
+                          <!-- <button class="btn btn-primary" type="reset">Limpiar</button> -->
+                          <button onclick="subirAnotacionEditada();" class="btn btn-success">Editar</button>
                         </div>
                       </div>
 
                     </div>
                   </div>
         <!-- /page content -->
-        <!-- <script src="js/ingresarAviso.js"></script> -->
+        <script type="text/javascript">
+          cargarCursos();
+
+          //cargarDatos();
+        </script>

@@ -3,19 +3,21 @@ function subirAcuerdo(){
   var fecha = new Date();
   fecha = $("#single_cal1").val();
   var contenido = $("#contenidoAcuerdo").val();
-
   var email = localStorage.getItem("email");
   var pass = localStorage.getItem("pass");
+
   console.log("guardo los datos");
   console.log(contenido);
   console.log(fecha);
   console.log(curso);
+  console.log(email);
+  console.log(pass);
   if(email !== null && pass !== null){
-    if (titulo !== null && curso !== null && fecha !== null && contenido !== null) {
+    if (curso != "noSeleccionado" && fecha != null && contenido != null) {
 
       $.ajax({
-        url: 'http://sapo2018.000webhostapp.com/ingresarAcuerdo.php',
-        method: 'POST',
+        url: 'https://sapo2018.000webhostapp.com/IngresarAcuerdo.php',
+        method: 'GET',
         dataType: 'json',
         data: {
           curso: curso,
@@ -41,6 +43,7 @@ function subirAcuerdo(){
               });
             $("#contenido").load("acuerdosTomadosAdmin.html");
             //document.location="indexAdmin.html";
+             //cargar('acuerdosTomadosAdmin');
             }else{
               console.log(data.resp2);
               //alert("ERROR");
@@ -107,7 +110,7 @@ function subirAcuerdo(){
     }
 }
 
-function cargarCursos(){
+function cargarCursosIngresarAcuerdos(){
   if(localStorage.getItem("email") !== null && localStorage.getItem("pass") !== null){
     var email = localStorage.getItem("email");
     var pass = localStorage.getItem("pass");
@@ -121,18 +124,14 @@ function cargarCursos(){
       },
       success: function(data){
         if(data.resp){
-          var grado;
-          var idCurso;
-          var cantidad = data.cantidad;
 
-          for (var i = cantidad-1; i >= 0; i--) {
-            console.log(data.datos[i].grado);
-            grado = data.datos[i].grado;
-            idCurso = data.datos[i].idCurso;
-            //console.log(idCurso);
-            text_html ='<option value="'+idCurso+'">'+grado+'</option>';
+          $.each( data.datos, function( key, value ) {
+            console.log(value);
+            text_html ='<option value="'+value.idCurso+'">'+value.grado+'</option>';
             $('#cursos').append(text_html);
-          }
+          });
+
+          $('#cursos').append(text_html);
         }else{
           //alert('ERROR');
           $.toast({
