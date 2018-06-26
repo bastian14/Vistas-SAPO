@@ -1,6 +1,6 @@
 
 function ingresar(){
-  $("#preloader").show();
+  //$("#preloader").show();
   var email = $('#email').val();
   var pass = $('#pass').val();
 

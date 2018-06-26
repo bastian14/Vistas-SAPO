@@ -58,7 +58,7 @@ function cargarDatosAvisos(){
       }
     });
   }else {
-    //alert('Debe iniciar sesión'); 
+    //alert('Debe iniciar sesión');
     $.toast({
             text : "<h2>Debe iniciar sesión</h2>",
             showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -133,7 +133,7 @@ function cargarCursosEditarAvisos(){
       }
     });
   }else {
-    //alert('Debe iniciar sesión'); 
+    //alert('Debe iniciar sesión');
     $.toast({
             text : "<h2>Debe iniciar sesión</h2>",
             showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -167,7 +167,7 @@ function subirAvisoEditado(){
   console.log(fecha);
   console.log(curso);
   if(email !== null && pass !== null && id != null){
-    if (titulo !== null && curso !== null && fecha !== null && contenido !== null) {
+    if (titulo !== "" && curso !== "" && fecha !== null && contenido !== "") {
 
       $.ajax({
         url: 'http://sapo2018.000webhostapp.com/editarInfoAviso.php',
@@ -184,7 +184,7 @@ function subirAvisoEditado(){
         },
         success: function(data){
           if(data.resp){
-            //alert("AVISO EDITADO CON EXITO"); 
+            //alert("AVISO EDITADO CON EXITO");
             $.toast({
               text : "<h2>AVISO EDITADO CON EXITO</h2>",
               showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -201,7 +201,7 @@ function subirAvisoEditado(){
             //document.location="indexAdmin.html";
             }else{
               console.log(data.resp2);
-              //alert("ERROR"); 
+              //alert("ERROR");
               $.toast({
                 text : "<h2>ERROR</h2>",
                 showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -217,7 +217,7 @@ function subirAvisoEditado(){
             }
           },
           error: function(){
-            //alert("EL WS NO RESPONDE"); 
+            //alert("EL WS NO RESPONDE");
             toast({
               text : "<h2>EL WS NO RESPONDE</h2>",
               showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -233,7 +233,7 @@ function subirAvisoEditado(){
           }
         });
       }else {
-        //alert('DEBE LLENAR TODOS LOS CAMPOS DE INFORMACION'); 
+        //alert('DEBE LLENAR TODOS LOS CAMPOS DE INFORMACION');
          toast({
               text : "<h2>DEBE LLENAR TODOS LOS CAMPOS DE INFORMACION</h2>",
               showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -248,7 +248,7 @@ function subirAvisoEditado(){
             })
       }
     }else {
-      //alert('DEBE INICIAR SESIÓN'); 
+      //alert('DEBE INICIAR SESIÓN');
       toast({
               text : "<h2>DEBE INICIAR SESIÓN</h2>",
               showHideTransition : 'slide',  // It can be plain, fade or slide
