@@ -35,23 +35,87 @@ function subirAnotacion(){
         },
         success: function(data){
           if(data.resp){
+            //alert("AVISO INGRESADO CON EXITO");
+            $.toast({
+              text : "<h2>ACUERDO INGRESADO CON EXITO</h2>",
+              showHideTransition : 'slide',  // It can be plain, fade or slide
+              icon: 'success',
+              bgColor : 'dark-red',              // Background color for toast
+              textColor : '#eee',            // text color
+              allowToastClose : false,       // Show the close button or not
+              hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+              stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+              textAlign : 'left',            // Alignment of text i.e. left, right, center
+              position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+            });
+            $("#contenido").load("avisosAdmin.html");
+
             alert("ANOTACION INGRESADA CON EXITO");
             $("#contenido").load("anotacionesAdmin.html");
+
             //document.location="indexAdmin.html";
             }else{
               console.log(data.resp2);
-              alert("ERROR");
+              //alert("ERROR");
+              $.toast({
+                text : "<h2>ERROR</h2>",
+                showHideTransition : 'slide',  // It can be plain, fade or slide
+                icon: 'error',
+                bgColor : 'dark-red',              // Background color for toast
+                textColor : '#eee',            // text color
+                allowToastClose : false,       // Show the close button or not
+                hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+                stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+                textAlign : 'left',            // Alignment of text i.e. left, right, center
+                position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+             });
             }
           },
           error: function(){
-            alert("EL WS NO RESPONDE");
+            //alert("EL WS NO RESPONDE");
+            $.toast({
+              text : "<h2>EL WS NO RESPONDE</h2>",
+              showHideTransition : 'slide',  // It can be plain, fade or slide
+              icon: 'warning',
+              bgColor : 'dark-red',              // Background color for toast
+              textColor : '#eee',            // text color
+              allowToastClose : false,       // Show the close button or not
+              hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+              stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+              textAlign : 'left',            // Alignment of text i.e. left, right, center
+              position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+            });
           }
         });
       }else {
-        alert('DEBE LLENAR TODOS LOS CAMPOS DE INFORMACION');
+        //alert('DEBE LLENAR TODOS LOS CAMPOS DE INFORMACION');
+        $.toast({
+          text : "<h2>DEBE LLENAR TODOS LOS CAMPOS DE INFORMACION</h2>",
+          showHideTransition : 'slide',  // It can be plain, fade or slide
+          icon: 'warning',
+          bgColor : 'dark-red',              // Background color for toast
+          textColor : '#eee',            // text color
+          allowToastClose : false,       // Show the close button or not
+          hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+          stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+          textAlign : 'left',            // Alignment of text i.e. left, right, center
+          position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+        });
       }
     }else {
-      alert('DEBE INICIAR SESIÓN');
+      //alert('DEBE INICIAR SESIÓN'); 
+      $.toast({
+          text : "<h2>DEBE INICIAR SESIÓN</h2>",
+          showHideTransition : 'slide',  // It can be plain, fade or slide
+          icon: 'warning',
+          bgColor : 'dark-red',              // Background color for toast
+          textColor : '#eee',            // text color
+          allowToastClose : false,       // Show the close button or not
+          hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+          stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+          textAlign : 'left',            // Alignment of text i.e. left, right, center
+          position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+        });
       document.location="login.html"
     }
 }
@@ -83,15 +147,51 @@ function cargarCursosIngresarAnotaciones(){
           }
           $('#cursos').append(text_html);
         }else{
-          alert('ERROR');
+          //alert('ERROR'); 
+          $.toast({
+            text : "<h2>ERROR</h2>",
+            showHideTransition : 'slide',  // It can be plain, fade or slide
+            icon: 'error',
+            bgColor : 'dark-red',              // Background color for toast
+            textColor : '#eee',            // text color
+            allowToastClose : false,       // Show the close button or not
+            hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+            stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+            textAlign : 'left',            // Alignment of text i.e. left, right, center
+            position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+         });
         }
       },
       error: function(){
-        alert('WS NO RESPONDE');
+        //alert('WS NO RESPONDE'); 
+        $.toast({
+          text : "<h2>WS NO RESPONDE</h2>",
+          showHideTransition : 'slide',  // It can be plain, fade or slide
+          icon: 'warning',
+          bgColor : 'dark-red',              // Background color for toast
+          textColor : '#eee',            // text color
+          allowToastClose : false,       // Show the close button or not
+          hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+          stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+          textAlign : 'left',            // Alignment of text i.e. left, right, center
+          position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+        });
       }
     });
   }else {
-    alert('Debe iniciar sesión');
+    //alert('Debe iniciar sesión'); 
+    $.toast({
+      text : "<h2>Debe iniciar sesión</h2>",
+      showHideTransition : 'slide',  // It can be plain, fade or slide
+      icon: 'warning',
+      bgColor : 'dark-red',              // Background color for toast
+      textColor : '#eee',            // text color
+      allowToastClose : false,       // Show the close button or not
+      hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+      stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+      textAlign : 'left',            // Alignment of text i.e. left, right, center
+      position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+    });
     document.location="login.html"
   }
 }
