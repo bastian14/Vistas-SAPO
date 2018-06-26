@@ -1,10 +1,21 @@
     		
-			<div class="col-md-6">
-				<center><span class="btn btn-primary"><a style="color: white;" href="ingresarNotas.html">Ingresar Notas</a></span></center>
+			<div class="col-md-3">
+				<select class="form-control">
+                          
+        </select>
 			</div> 
-			<div class="col-md-6">
-				<center><span class="btn btn-primary"><a style="color: white;" href="eliminarNotas.html">Eliminar Notas</a></span></center>
+			<div class="col-md-3">
+				<select class="form-control">
+                        
+       </select> 
 			</div> 
+      <div class="col-md-3">
+       <center><span class="btn btn-primary"><a style="color: white;" href="#">Cargar tabla</a></span></center>
+      </div> 
+
+      <div id="”dialog”" title="”dialog">
+        Contenido de la ventana
+      </div>
 
       <div style="margin-top: 20px" class="x_panel">
                   <div class="x_title">
@@ -16,42 +27,13 @@
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th>Alumno</th>
-                          <th>Curso</th>
-                          <th>Asignatura</th>  
-                          <th>Evaluación n°</th>
-                          <th>Calificación</th>
+                          <th>Nombre</th>
+                          <th>Apellido</th>
+                          <th>Ingresar calificación</th>  
+                          <th>Promedio</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
-                          <td>Basthian Henriquez</td>
-                          <td>7 básico</td> 
-                          <td>Matematicas</td> 
-                          <td>1</td>
-                          <td>4,2</td>
-                        </tr>
-                        <tr>
-                          <td>Juanito Perez</td>
-                          <td>8 básico</td>
-                          <td>Lenguaje</td> 
-                          <td>1</td>
-                          <td>6,2</td>
-                        </tr>
-                        <tr>
-                          <td>Basthian Henriquez</td>
-                          <td>7 básico</td>
-                          <td>Lenguaje</td> 
-                          <td>1</td>
-                          <td>6,5</td>
-                        </tr>
-                        <tr>
-                          <td>Basthian Henriquez</td>
-                          <td>7 básico</td>
-                          <td>Lenguaje</td> 
-                          <td>2</td>
-                          <td>4,5</td>
-                        </tr>
+                      <tbody id="TablaNotas">
                       </tbody>
                     </table>
 
