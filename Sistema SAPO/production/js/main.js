@@ -5,8 +5,8 @@ function ingresar(){
   var pass = $('#pass').val();
 
   if(email.length > 0 && pass.length > 0){
-    console.log(pass);
-    console.log(email);
+    //console.log(pass);
+    //console.log(email);
     $.ajax({
     url: 'http://sapo2018.000webhostapp.com/login.php',//cambiar link
     method: 'POST',
@@ -32,15 +32,17 @@ function ingresar(){
         })
 
         localStorage.setItem("email", $('#email').val());
+        console.log(localStorage.getItem('email'));
         localStorage.setItem("pass", $('#pass').val());
+        console.log(localStorage.getItem('pass'));
         switch (data.perfil) { //el servicio web devuelve el perfil del usuario y segun este se inicia el sistema
           case '1':
               document.location = "indexAdmin.html";
-              console.log("email");
+              //console.log("email");
             break;
           case '2':
               document.location = "indexUser.html";
-              console.log("pass");
+              //console.log("pass");
             break;
           default:
               $("#preloader").hide();
