@@ -1,4 +1,4 @@
-function cargarDatos(){
+function cargarDatosAvisos(){
   var email = localStorage.getItem("email");
   var pass = localStorage.getItem("pass");
   var id = localStorage.getItem("idAvisoEdit");
@@ -39,7 +39,7 @@ function cargarDatos(){
   }
 }
 
-function cargarCursos(){
+function cargarCursosEditarAvisos(){
   if(localStorage.getItem("email") !== null && localStorage.getItem("pass") !== null){
     var email = localStorage.getItem("email");
     var pass = localStorage.getItem("pass");
@@ -66,7 +66,7 @@ function cargarCursos(){
         }else{
           alert('ERROR');
         }
-        cargarDatos();
+        cargarDatosAvisos();
       },
       error: function(){
         alert('WS NO RESPONDE');
