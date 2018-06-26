@@ -1,8 +1,11 @@
-function cargarDatos(){
+function cargarDatosEditarAcuerdos(){
   var email = localStorage.getItem("email");
+  console.log("email cargar: "+email);
   var pass = localStorage.getItem("pass");
+  console.log("pass cargar: "+pass);
   var id = localStorage.getItem("idAcuerdoEdit");
-  if(email !== null && pass !== null && id !== null){
+  console.log("pass id: "+id);
+  //if(email !== null && pass !== null && id !== null){
 
     $.ajax({
       url: 'http://sapo2018.000webhostapp.com/editarAcuerdo.php',
@@ -15,12 +18,12 @@ function cargarDatos(){
       },
       success: function(data){
         if(data.resp){
-          var profesor = data.datos.profesor;
+          //var profesor = data.datos.profesor;
           var curso = data.datos.idCurso;
           var fecha = data.datos.fecha;
           var contenido = data.datos.contenido;
-          console.log("profesor: "+profesor+"idcurso: "+curso+"fecha: "+fecha+"contenido: "+contenido);
-          $('#first-name').val(profesor);
+          console.log("idcurso: "+curso+"fecha: "+fecha+"contenido: "+contenido);
+          //$('#first-name').val(profesor);
           $('#cursos').val(curso);
           $('#single_cal1').val(fecha);
           $('#contenidoAcuerdo').val(contenido);
@@ -30,16 +33,16 @@ function cargarDatos(){
         }
       },
       error: function(){
-        alert('ERROR 2');
+        alert('ERROR 2 ><');
       }
     });
-  }else {
+  /*}else {
     alert('Debe iniciar sesión');
     document.location="login.html"
-  }
+  }*/
 }
 
-function cargarCursos(){
+function cargarCursosEditarAcuerdos(){
   if(localStorage.getItem("email") !== null && localStorage.getItem("pass") !== null){
     var email = localStorage.getItem("email");
     var pass = localStorage.getItem("pass");
@@ -66,21 +69,20 @@ function cargarCursos(){
         }else{
           alert('ERROR');
         }
-        cargarDatos();
+        cargarDatosEditarAcuerdos();
       },
       error: function(){
         alert('WS NO RESPONDE');
       }
     });
   }else {
-    alert('Debe iniciar sesión');
+    alert('Debe iniciar sesión Acuerdos');
     document.location="login.html"
   }
 }
 
 
 function subirAcuerdoEditado(){
-  var profesor = $("#first-name").val();
   var curso = $("#cursos").val();
   var fecha = new Date();
   fecha = $("#single_cal1").val();
@@ -90,19 +92,20 @@ function subirAcuerdoEditado(){
   var pass = localStorage.getItem("pass");
   var id = localStorage.getItem("idAcuerdoEdit");
   console.log("guardo los datos");
-  console.log(profesor);
   console.log(contenido);
   console.log(fecha);
   console.log(curso);
+  console.log("email cargar: "+email);
+  console.log("pass subir: "+pass);
+  console.log("pass subir: "+id);
   if(email !== null && pass !== null && id !== null){
-    if (profesor !== null && curso !== null && fecha !== null && contenido !== null) {
+    if (curso !== null && fecha !== null && contenido !== null) {
 
       $.ajax({
         url: 'http://sapo2018.000webhostapp.com/editarInfoAcuerdo.php',
         method: 'POST',
         dataType: 'json',
         data: {
-          profesor: profesor,
           curso: curso,
           fecha: fecha,
           contenido: contenido,

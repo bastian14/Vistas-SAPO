@@ -43,7 +43,7 @@ function cargarAcuerdos(){
         }
       },
       error: function(){
-        alert('ERROR 2');
+        alert('ERROR 2 <>');
       }
     });
   }else {
@@ -88,6 +88,6 @@ function borrarAcuerdos(id){
 
 
 function editarAcuerdos(id){
-  localStorage.setItem("idAvisoEdit", id);
+  localStorage.setItem("idAcuerdoEdit", id);
   $("#contenido").load("editarAcuerdo.html");
 }
