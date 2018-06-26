@@ -32,8 +32,8 @@ function cargarAvisos(){
             text_html +='<td>'+curso+'</td>';
             text_html +='<td>'+fecha+'</td>';
             text_html +='<td>'+contenido+'</td>';
-            text_html +='<td><button onclick="editar(\''+idAviso+'\')" type="button" class="btn btn-primary">Editar</button></td>';
-            text_html +='<td><button onclick="borrar(\''+idAviso+'\')" type="button" class="btn btn-primary">Eliminar</button></td>';
+            text_html +='<td><button onclick="editarAviso(\''+idAviso+'\')" type="button" class="btn btn-primary">Editar</button></td>';
+            text_html +='<td><button onclick="borrarAviso(\''+idAviso+'\')" type="button" class="btn btn-primary">Eliminar</button></td>';
             text_html +='<tr>';
             $('#tablaAvisos').append(text_html);
           }
@@ -51,7 +51,7 @@ function cargarAvisos(){
   }
 }
 
-function borrar(id){
+function borrarAviso(id){
   console.log(id);
   var email = localStorage.getItem("email");
   var pass = localStorage.getItem("pass");
@@ -86,7 +86,7 @@ function borrar(id){
 }
 
 
-function editar(id){
+function editarAviso(id){
   localStorage.setItem("idAvisoEdit", id);
   $("#contenido").load("editarAviso.html");
 }

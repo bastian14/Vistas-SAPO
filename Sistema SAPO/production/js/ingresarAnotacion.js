@@ -56,7 +56,7 @@ function subirAnotacion(){
     }
 }
 
-function cargarCursos(){
+function cargarCursosIngresarAnotaciones(){
   if(localStorage.getItem("email") !== null && localStorage.getItem("pass") !== null){
     var email = localStorage.getItem("email");
     var pass = localStorage.getItem("pass");
