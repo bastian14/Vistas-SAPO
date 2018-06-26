@@ -35,7 +35,6 @@ function subirAnotacion(){
         },
         success: function(data){
           if(data.resp){
-<<<<<<< HEAD
             //alert("AVISO INGRESADO CON EXITO");
             $.toast({
               text : "<h2>ACUERDO INGRESADO CON EXITO</h2>",
@@ -50,10 +49,10 @@ function subirAnotacion(){
               position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
             });
             $("#contenido").load("avisosAdmin.html");
-=======
+
             alert("ANOTACION INGRESADA CON EXITO");
             $("#contenido").load("anotacionesAdmin.html");
->>>>>>> e0d9ee22a91c5b3ab92ad748c6e80a6d3dcbf4a9
+
             //document.location="indexAdmin.html";
             }else{
               console.log(data.resp2);
