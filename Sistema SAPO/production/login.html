@@ -20,6 +20,7 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/jquery.toast.min.css">
+	<script src="js/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
 
 
@@ -29,8 +30,7 @@
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="css/preloader.css"/>
-<script src="http://code.jquery.com/jquery-2.2.4.min.js"
-        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
 <script src="js/jquery.preloader.min.js"></script>
 
 <!-- PRELOADER -->
@@ -51,20 +51,20 @@
 						Sistema de Apoderados
 					</span>
 
-					<div class="wrap-input100 validate-input">
+					<div>
 						<input class="input100" type="text" id="email" placeholder="Correo electrónico">
 						<span class="focus-input100"></span>
-						<span class="symbol-input100">
+						<!--<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
+						</span>-->
 					</div>
-
-					<div class="wrap-input100 validate-input">
+					<br>
+					<div>
 						<input class="input100" type="password" id="pass" placeholder="Contraseña">
 						<span class="focus-input100"></span>
-						<span class="symbol-input100">
+						<!--<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
-						</span>
+						</span>-->
 					</div>
 
 					<div class="container-login100-form-btn">
@@ -97,7 +97,7 @@
 
 
 <!--===============================================================================================-->
-	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+
 <!--===============================================================================================-->
 	<script src="vendor/bootstrap/js/popper.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -138,22 +138,12 @@
 	            someBlock = $('#www');
 
 	    function getValues() {
-	        obj.textVal = $('#textInput').val();
-	        obj.percentVal = $('#percentInput').val();
-	        obj.durationVal = $('#durationInput').val();
+	        obj.textVal;
+	        obj.percentVal;
+	        obj.durationVal;
 	    }
 
-	    $('#load').on('click', function () {
-	        getValues();
-	        someBlock.preloader({
-	            text: obj.textVal,
-	            percent: obj.percentVal,
-	            duration: obj.durationVal
-	        });
-	        $('.form-control').each(function(k,v) {
-	            if (v.value.length == 0) $(v).attr('disabled', true);
-	        });
-	    });
+
 	    /*
 	    $('#stop').on('click', function () {
 	        someBlock.preloader('remove');

@@ -1,6 +1,17 @@
 
 function ingresar(){
   //$("#preloader").show();
+  //------ PRELOADER ------
+      getValues();
+      someBlock.preloader({
+          text: obj.textVal,
+          percent: obj.percentVal,
+          duration: obj.durationVal
+      });
+      $('.form-control').each(function(k,v) {
+          if (v.value.length == 0) $(v).attr('disabled', true);
+      });
+  //------------
   var email = $('#email').val();
   var pass = $('#pass').val();
 
@@ -49,7 +60,12 @@ function ingresar(){
               //document.location = "index.html"; //si no se encuentra registrado el perfil no se inicia sesion
         }
       }else{
-        $("#preloader").hide();
+        // PRELOADER
+        someBlock.preloader('remove');
+        $('.form-control').attr('disabled', false);
+        //--------
+
+        $//("#preloader").hide();
         //alert('Datos ingresados incorrectos');
         $.toast({
           text : "<h2>Las redenciales ingresadas son incorrectas</h2>",
@@ -66,7 +82,12 @@ function ingresar(){
       }
     },
     error: function(){
-      $("#preloader").hide();
+      // PRELOADER
+      someBlock.preloader('remove');
+      $('.form-control').attr('disabled', false);
+      //--------
+
+      //$("#preloader").hide();
       //alert('El WS no ha respondido');
       $.toast({
         text : "<h2>El WS no ha respondido</h2>",
@@ -84,6 +105,11 @@ function ingresar(){
   });
   }else{
     //alert('Campos de información vacios');
+    // PRELOADER
+    someBlock.preloader('remove');
+    $('.form-control').attr('disabled', false);
+    //--------
+    
     $.toast({
       text : "<h2>Campos de información vacios</h2>",
       showHideTransition : 'slide',  // It can be plain, fade or slide
