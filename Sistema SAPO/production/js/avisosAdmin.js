@@ -32,8 +32,8 @@ function cargarAvisos(){
             text_html +='<td>'+curso+'</td>';
             text_html +='<td>'+fecha+'</td>';
             text_html +='<td>'+contenido+'</td>';
-            text_html +='<td><button onclick="editarAviso(\''+idAviso+'\')" type="button" class="btn btn-primary">Editar</button></td>';
-            text_html +='<td><button onclick="borrarAviso(\''+idAviso+'\')" type="button" class="btn btn-primary">Eliminar</button></td>';
+            text_html +='<td><button onclick="editarAviso(\''+idAviso+'\')" type="button" class="btn btn-warning">Editar</button></td>';
+            text_html +='<td><button onclick="borrarAviso(\''+idAviso+'\')" type="button" class="btn btn-danger">Eliminar</button></td>';
             text_html +='<tr>';
             $('#tablaAvisos').append(text_html);
           }
