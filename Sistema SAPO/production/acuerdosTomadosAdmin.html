@@ -1,38 +1,14 @@
-  
-<div style="margin-top: 20px" class="x_panel">
-    
-    <div class="x_title">
-      <h2>Acuerdos Tomados</h2>
-      <div class="clearfix">
-        
-      </div>
-    </div>
-    <div class="x_content">
-      
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Profesor</th>
-            
-            <th>Curso</th> 
-            <th>Fecha</th> 
-            <th>Descripción</th>
-          </tr>
-        </thead>
-        <tbody id ="tablaAcuerdos">
-        </tbody>
-      </table>
-      <div class="col-md-4">
-        <span class="btn btn-primary"><a style="color: white;" onclick="cargar('ingresarAcuerdo'); cargarCursosIngresarAcuerdos();" >Ingresar Acuerdo</a></span>
-      </div> 
-    </div>
-</div>
-<script type="text/javascript">
-          cargarAcuerdos();
-        </script>
-  
+<div class="col-md-12">
+  <center>
+    <span class="btn btn-primary">
+      <a style="color: white;" onclick="cargar('ingresarAcuerdo'); cargarCursosIngresarAcuerdos();">
+        Ingresar Acuerdo
+      </a>
+    </span>
+  </center>
+</div> 
 
-  <!--
+  <!--BOTONES MODIFICAR Y ELIMINAR FORMAN PARTE DE CADA FILA DE LA TABLA 
   <div class="col-md-4">
     <center><span class="btn btn-primary"><a style="color: white;" href="modificarAcuerdo.html">Modificar Acuerdo</a></span></center>
   </div> 
@@ -41,4 +17,30 @@
     <center><span class="btn btn-primary"><a style="color: white;" href="eliminarAcuerdo.html">Eliminar Acuerdo</a></span></center>
   </div>
 --> 
+  
+<div style="margin-top: 20px" class="x_panel">  
+  <div class="x_title">
+    <h2>Acuerdos Tomados</h2>
+    <div class="clearfix"></div>
+  </div>
+  <div class="x_content"> 
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Profesor</th>
+          <th>Curso</th> 
+          <th>Fecha</th> 
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody id ="tablaAcuerdos">
+      
+      </tbody>
+    </table>
+  </div>
+</div>
 
+<script type="text/javascript">
+  cargarAcuerdos();
+</script>
+  
