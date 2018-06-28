@@ -1,4 +1,5 @@
-function subirAviso(){
+function subirAviso(){ 
+
   var titulo = $("#first-name").val();
   var curso = $("#cursos").val();
   var fecha = new Date();
@@ -29,7 +30,8 @@ function subirAviso(){
         },
         success: function(data){
           if(data.resp){
-            //alert("AVISO INGRESADO CON EXITO"); 
+            //alert("AVISO INGRESADO CON EXITO");  
+           
             $.toast({
               text : "<h2>AVISO INGRESADO CON EXITO</h2>",
               showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -47,6 +49,7 @@ function subirAviso(){
             }else{
               console.log(data.resp2);
               //alert("ERROR"); 
+              
                $.toast({
                   text : "<h2>ERROR</h2>",
                   showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -63,6 +66,7 @@ function subirAviso(){
           },
           error: function(){
             //alert("EL WS NO RESPONDE"); 
+            
             $.toast({
               text : "<h2>EL WS NO RESPONDE</h2>",
               showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -79,6 +83,7 @@ function subirAviso(){
         });
       }else {
         //alert('DEBE LLENAR TODOS LOS CAMPOS DE INFORMACION'); 
+       
         $.toast({
           text : "<h2>DEBE LLENAR TODOS LOS CAMPOS DE INFORMACION</h2>",
           showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -94,6 +99,7 @@ function subirAviso(){
       }
     }else {
       //alert('DEBE INICIAR SESIÓN');
+      
       $.toast({
           text : "<h2>DEBE INICIAR SESIÓN</h2>",
           showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -110,7 +116,8 @@ function subirAviso(){
     }
 }
 
-function cargarCursosIngresarAvisos(){
+function cargarCursosIngresarAvisos(){ 
+
   if(localStorage.getItem("email") !== null && localStorage.getItem("pass") !== null){
     var email = localStorage.getItem("email");
     var pass = localStorage.getItem("pass");
@@ -133,7 +140,8 @@ function cargarCursosIngresarAvisos(){
 
           $('#cursos').append(text_html);
         }else{
-          //alert('ERROR'); 
+          //alert('ERROR');  
+	        
           $.toast({
             text : "<h2>ERROR</h2>",
             showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -149,7 +157,8 @@ function cargarCursosIngresarAvisos(){
         }
       },
       error: function(){
-        //alert('WS NO RESPONDE');
+        //alert('WS NO RESPONDE'); 
+         
         $.toast({
           text : "<h2>WS NO RESPONDE</h2>",
           showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -165,7 +174,8 @@ function cargarCursosIngresarAvisos(){
       }
     });
   }else {
-    //alert('Debe iniciar sesión');
+    //alert('Debe iniciar sesión'); 
+    
     $.toast({
       text : "<h2>Debe iniciar sesión</h2>",
       showHideTransition : 'slide',  // It can be plain, fade or slide

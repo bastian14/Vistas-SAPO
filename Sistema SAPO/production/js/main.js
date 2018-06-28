@@ -68,7 +68,7 @@ function ingresar(){
         $//("#preloader").hide();
         //alert('Datos ingresados incorrectos');
         $.toast({
-          text : "<h2>Las redenciales ingresadas son incorrectas</h2>",
+          text : "<h2>Las credenciales ingresadas son incorrectas</h2>",
           showHideTransition : 'slide',  // It can be plain, fade or slide
           icon: 'warning',
           bgColor : 'dark-red',              // Background color for toast
