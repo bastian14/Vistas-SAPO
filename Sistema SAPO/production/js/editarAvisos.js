@@ -218,7 +218,7 @@ function subirAvisoEditado(){
           },
           error: function(){
             //alert("EL WS NO RESPONDE");
-            toast({
+            $.toast({
               text : "<h2>EL WS NO RESPONDE</h2>",
               showHideTransition : 'slide',  // It can be plain, fade or slide
               icon: 'warning',
@@ -234,7 +234,7 @@ function subirAvisoEditado(){
         });
       }else {
         //alert('DEBE LLENAR TODOS LOS CAMPOS DE INFORMACION');
-         toast({
+         $.toast({
               text : "<h2>DEBE LLENAR TODOS LOS CAMPOS DE INFORMACION</h2>",
               showHideTransition : 'slide',  // It can be plain, fade or slide
               icon: 'warning',
@@ -249,7 +249,7 @@ function subirAvisoEditado(){
       }
     }else {
       //alert('DEBE INICIAR SESIÓN');
-      toast({
+      $.toast({
               text : "<h2>DEBE INICIAR SESIÓN</h2>",
               showHideTransition : 'slide',  // It can be plain, fade or slide
               icon: 'warning',

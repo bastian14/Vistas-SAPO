@@ -71,7 +71,7 @@ function cargarAcuerdos(){
       }
     });
   }else {
-    //alert('Debe iniciar sesión'); 
+    //alert('Debe iniciar sesión');
     $.toast({
       text : "<h2>Debe iniciar sesión</h2>",
       showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -105,11 +105,11 @@ function borrarAcuerdos(id){
         },
         success: function(data){
           if(data.resp){
-            //alert("Acuerdo eliminado con exito."); 
+            //alert("Acuerdo eliminado con exito.");
             $.toast({
               text : "<h2>Acuerdo eliminado con exito</h2>",
               showHideTransition : 'slide',  // It can be plain, fade or slide
-              icon: 'warning',
+              icon: 'success',
               bgColor : 'dark-red',              // Background color for toast
               textColor : '#eee',            // text color
               allowToastClose : false,       // Show the close button or not
@@ -120,7 +120,7 @@ function borrarAcuerdos(id){
             });
             $("#contenido").load("acuerdosTomadosAdmin.html");
           }else{
-            //alert('ERROR'); 
+            //alert('ERROR');
             $.toast({
               text : "<h2>ERROR</h2>",
               showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -152,7 +152,7 @@ function borrarAcuerdos(id){
         }
       });
     }else {
-      //alert('Debe iniciar sesión'); 
+      //alert('Debe iniciar sesión');
       $.toast({
           text : "<h2>Debe iniciar sesión</h2>",
           showHideTransition : 'slide',  // It can be plain, fade or slide

@@ -29,7 +29,7 @@ function cargarDatosEditarAcuerdos(){
           $('#contenidoAcuerdo').val(contenido);
 
         }else{
-          //alert('ERROR'); 
+          //alert('ERROR');
           $.toast({
             text : "<h2>ERROR</h2>",
             showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -91,7 +91,7 @@ function cargarCursosEditarAcuerdos(){
           });
 
         }else{
-          //alert('ERROR'); 
+          //alert('ERROR');
           $.toast({
             text : "<h2>ERROR</h2>",
             showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -124,7 +124,7 @@ function cargarCursosEditarAcuerdos(){
       }
     });
   }else {
-    //alert('Debe iniciar sesión Acuerdos'); 
+    //alert('Debe iniciar sesión Acuerdos');
      $.toast({
         text : "<h2>Debe iniciar sesión Acuerdos</h2>",
         showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -192,7 +192,7 @@ function subirAcuerdoEditado(){
             //document.location="indexAdmin.html";
             }else{
               console.log(data.resp2);
-              //alert("ERROR"); 
+              //alert("ERROR");
               $.toast({
                 text : "<h2>ERROR</h2>",
                 showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -208,7 +208,7 @@ function subirAcuerdoEditado(){
             }
           },
           error: function(){
-            //alert("EL WS NO RESPONDE"); 
+            //alert("EL WS NO RESPONDE");
             $.toast({
               text : "<h2>EL WS NO RESPONDE</h2>",
               showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -240,7 +240,7 @@ function subirAcuerdoEditado(){
       }
     }else {
       //alert('DEBE INICIAR SESIÓN');
-      .toast({
+      $.toast({
           text : "<h2>DEBE INICIAR SESIÓN</h2>",
           showHideTransition : 'slide',  // It can be plain, fade or slide
           icon: 'warning',
