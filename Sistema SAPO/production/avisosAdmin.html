@@ -1,7 +1,47 @@
+<div class="col-md-12">
+	<center>
+    <span class="btn btn-primary">
+      <a style="color: white;" onclick="cargar('ingresarAviso'); cargarCursosIngresarAvisos();">
+        Ingresar Avisos
+      </a>
+    </span>
+  </center>
+</div>
 
-        <!-- page content -->
+<!--BOTONES MODIFICAR Y ELIMINAR FORMAN PARTE DE CADA FILA DE LA TABLA 
+  <div class="col-md-4">
+	  <center><span class="btn btn-primary"><a style="color: white;" href="modificarAviso.html">Modificar Avisos</a></span></center>
+	</div>
+	<div class="col-md-4">
+		<center><span class="btn btn-primary"><a style="color: white;" href="eliminarAviso.html">Eliminar Avisos</a></span></center>
+	</div> 
+-->
 
+<div style="margin-top: 20px" class="x_panel">
+  <div class="x_title">
+    <h2>Lista de avisos</h2>
+    <div class="clearfix"></div>
+  </div>
+  <div class="x_content">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Curso</th>
+          <th>Fecha</th>
+          <th>Comentario</th>
+					<th>Editar</th>
+          <th>Borrar</th>
+        </tr>
+      </thead>
+      <tbody id="tablaAvisos">
+      
+      </tbody>
+    </table>
+  </div>
+</div>
 
+<<<<<<< HEAD
 			<div class="col-md-12">
 				<center><span class="btn btn-primary"><a style="color: white;" onclick="cargar('ingresarAviso'); cargarCursosIngresarAvisos();">Ingresar Avisos</a></span></center>
 			</div>
@@ -41,3 +81,9 @@
 				<script type="text/javascript">
 					cargarAvisos();
 				</script>
+=======
+<!-- /page content -->
+<script type="text/javascript">
+  cargarAvisos();
+</script>
+>>>>>>> d0c4c6887bd1cab4ad2d846586d0cd55d197cc81
