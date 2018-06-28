@@ -48,9 +48,6 @@ function subirAnotacion(){
               textAlign : 'left',            // Alignment of text i.e. left, right, center
               position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
             });
-            $("#contenido").load("avisosAdmin.html");
-
-            alert("ANOTACION INGRESADA CON EXITO");
             $("#contenido").load("anotacionesAdmin.html");
 
             //document.location="indexAdmin.html";

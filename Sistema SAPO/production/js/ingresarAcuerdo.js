@@ -32,7 +32,7 @@ function subirAcuerdo(){
               $.toast({
                 text : "<h2>ACUERDO INGRESADO CON EXITO</h2>",
                 showHideTransition : 'slide',  // It can be plain, fade or slide
-                icon: 'warning',
+                icon: 'success',
                 bgColor : 'dark-red',              // Background color for toast
                 textColor : '#eee',            // text color
                 allowToastClose : false,       // Show the close button or not
