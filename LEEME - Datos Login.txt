@@ -6,3 +6,8 @@ Credenciales para las cuentas
 Datos Admin: 
 test@test.cl
 pass: 1234
+
+Login para la base de datos:
+user: id6162854_sapo
+pass: sapodb
+
