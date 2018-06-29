@@ -1,43 +1,113 @@
 
 			<div class="col-md-3">
-				<select class="form-control">
-
+				<select class="form-control" id="cursosNotas" onchange="cargarAsignaturasNotasDetalles(this.value);">
+					<option value="noSeleccionado">Elija un curso</option>
         </select>
 			</div>
 
 			<div class="col-md-3">
-				<select class="form-control">
-
+				<select class="form-control" id="asignaturasNotas">
+					<option value="noSeleccionado">Elija una asignatura</option>
         </select>
 			</div>
 
       <div class="col-md-3">
-       <center><span class="btn btn-primary"><a style="color: white;" href="#">Cargar tabla</a></span></center>
-      </div>
-
-      <div id="”dialog”" title="”dialog">
-        Contenido de la ventana
+       <center><span class="btn btn-primary"><a style="color: white;" onclick="cargarNotas()">Cargar tabla</a></span></center>
       </div>
 
       <div style="margin-top: 20px" class="x_panel">
-                  <div class="x_title">
-                    <h2>Lista de notas</h2>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
+        <div class="x_title">
+          <h2>Lista de notas</h2>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
 
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th>Nombre</th>
-                          <th>Apellido</th>
-                          <th>Promedio</th>
-                          <th>Ingresar calificación</th>
-                        </tr>
-                      </thead>
-                      <tbody id="TablaNotas">
-                      </tbody>
-                    </table>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Promedio</th>
+								<th>Ver Notas</th>
+                <th>Ingresar Calificación</th>
+              </tr>
+            </thead>
+            <tbody id="tablaNotas">
+            </tbody>
+          </table>
 
-                  </div>
-                </div>
+        </div>
+      </div>
+
+			<!-- ventana emergente Detalles notas-->
+			<div class="container">
+				<!-- Modal -->
+				<div class="modal fade" id="myModalNotasDetalles" role="dialog">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title"><span id="nombreAsignaturaDetalles"></span>, Detalle Notas de: <span id="AlumnoNomApDetalles"></span> </h4>
+							</div>
+							<div class="modal-body">
+
+								<table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+									<thead>
+											<tr>
+												<th>Nº</th>
+												<th>Nota</th>
+											</tr>
+										</thead>
+										<tbody id="tablaNotasDetalles">
+
+										</tbody>
+								</table>
+
+							</div>
+							<div class="modal-footer">
+								<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+								<button class="btn btn-danger" type="button" data-dismiss="modal">Cerrar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+		<!-- fin ventana emergente Detalles notas-->
+
+		<!-- ventana emergente agregar notas-->
+		<div class="container">
+			<!-- Modal -->
+			<div class="modal fade" id="myModalAgregarNota" role="dialog">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title"><span id="nombreAsignaturaAAgregar"></span>, Agregar Nota a: <span id="AlumnoNomApAgregarNota"></span> </h4>
+						</div>
+						<div class="modal-body">
+							<!-- INGRESAR NUEVA NOTA -->
+							<div class="col-md-3">
+								<!-- <div class="col-md-6 col-sm-6 col-xs-12"> -->
+									<input type="number" min="10" max="70" step="1" id="notaNueva" required="required" placeholder="Ingrese una nota" class="form-control col-md-7 col-xs-12">
+								<!-- </div> -->
+							</div>
+
+							<div class="col-md-3">
+								<button class="btn btn-success" type="button" onclick="agregarNuevaNota()">Agregar Nota</button>
+							</div>
+							<!-- INGRESAR NUEVA NOTA-->
+							<br> <br>
+						</div>
+						<div class="modal-footer">
+							<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+							<button class="btn btn-danger" type="button" data-dismiss="modal">Cerrar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	<!-- fin ventana emergente agregar notas-->
+
+	<script type="text/javascript">
+		cargarCursosNotasDetalles();
+	</script>
