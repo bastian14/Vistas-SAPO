@@ -42,7 +42,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Detalle Cuotas Pagadas: <span id="apoderadoNomAp"></span> </h4>
+                    <h4 class="modal-title">Detalle Cuotas Pagadas: <span id="apoderadoNomApDetalles"></span> </h4>
                   </div>
                   <div class="modal-body">
 
@@ -77,10 +77,20 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Pagar</h4>
+                  <h4 class="modal-title">Pagar Cuota de: <span id="apoderadoNomApPagar"></span> </h4>
                 </div>
                 <div class="modal-body">
-                  <p>This is a large modal.</p>
+                  <!-- CARGAR LISTA SEGUN CURSO-->
+                  <div class="col-md-3">
+                    <select class="form-control" id="mesesPorPagar">
+                      <option value="noSeleccionado">Seleccione un mes</option>
+                    </select>
+            			</div>
+                  <div class="col-md-3">
+                    <button class="btn btn-success" type="button" onclick="pagarCuota()">Pagar Cuota</button>
+                  </div>
+                  <!-- CARGAR LISTA SEGUN CURSO-->
+                  <br> <br>
                 </div>
                 <div class="modal-footer">
                   <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
