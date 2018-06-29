@@ -27,6 +27,7 @@
                   <th>Apellidos</th>
                   <th>Detalles</th>
                   <th>Pagar</th>
+                  <th>Eliminar Pago</th>
                 </tr>
               </thead>
               <tbody id="tablaCuotas">
@@ -101,6 +102,39 @@
           </div>
       </div>
       <!-- fin ventana emergente Pagar-->
+
+      <!-- ventana emergente Eliminar-->
+      <div class="container">
+        <!-- Modal -->
+        <div class="modal fade" id="myModalEliminarCuota" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Eliminar Cuota de: <span id="apoderadoNomApPagar"></span> </h4>
+              </div>
+              <div class="modal-body">
+                <!-- CARGAR LISTA SEGUN CURSO-->
+                <div class="col-md-3">
+                  <select class="form-control" id="mesesPorEliminarCuotas">
+                    <option value="noSeleccionado">Seleccione un mes</option>
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <button class="btn btn-danger" type="button" onclick="eliminarCuota();">Eliminar Cuota</button>
+                </div>
+                <!-- CARGAR LISTA SEGUN CURSO-->
+                <br> <br>
+              </div>
+              <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                <button class="btn btn-danger" type="button" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- fin ventana emergente Eliminar-->
 
       </div>
     </div>
