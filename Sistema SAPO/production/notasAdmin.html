@@ -154,7 +154,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title"><span id="nombreAsignaturaDetalles"></span>, Eliminar Notas de: <span id="AlumnoNomApDetalles"></span> </h4>
+					<h4 class="modal-title"><span id="nombreAsignaturaEliminar"></span>, Eliminar Notas de: <span id="AlumnoNomApEliminar"></span> </h4>
 				</div>
 				<div class="modal-body">
 
@@ -166,7 +166,7 @@
 									<th>Seleccionar</th>
 								</tr>
 							</thead>
-							<tbody id="tablaNotasDetalles">
+							<tbody id="tablaNotasEliminar">
 
 							</tbody>
 					</table>
@@ -174,7 +174,7 @@
 				</div>
 				<div class="modal-footer">
 					<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-					<button class="btn btn-success" type="button" data-dismiss="modal">Eliminar Nota</button>
+					<button class="btn btn-success" type="button" onclick="eliminarNotas();" data-dismiss="modal">Eliminar Nota</button>
 					<button class="btn btn-danger" type="button" data-dismiss="modal">Cerrar</button>
 				</div>
 			</div>

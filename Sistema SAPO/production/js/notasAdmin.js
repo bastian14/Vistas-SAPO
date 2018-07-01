@@ -582,7 +582,7 @@ function editarNotas() {
             if(data.resp){
 
               $.toast({
-                text : "<h2>NOTA AGREGADA EXITOSAMENTE</h2>",
+                text : "<h2>NOTA EDITADA EXITOSAMENTE</h2>",
                 showHideTransition : 'slide',  // It can be plain, fade or slide
                 icon: 'success',
                 bgColor : 'dark-red',              // Background color for toast
@@ -656,5 +656,213 @@ function editarNotas() {
     });
       document.location="login.html"
     }
+  }
+}
+
+//----------- ELIMINAR ------------
+
+function divEliminarNotas(id,alumno) {
+  var nombreAsignatura = localStorage.getItem("nombreAsignatura");
+  document.getElementById('tablaNotasEliminar').innerHTML = ''; //Elimina lo cargado anteriormente en la tabla
+  console.log(alumno);
+  document.getElementById('nombreAsignaturaEliminar').innerHTML = nombreAsignatura;
+  document.getElementById('AlumnoNomApEliminar').innerHTML = alumno;
+  localStorage.setItem("alumnoAEliN", id);
+
+  var email = localStorage.getItem("email");
+  var pass = localStorage.getItem("pass");
+  var asignatura = localStorage.getItem("asignatura");
+  if(email !== null && pass !== null && id !== null && asignatura !== null){
+
+    $.ajax({
+      url: 'http://sapo2018.000webhostapp.com/mostrarNotasEliminar.php',
+      method: 'POST',
+      dataType: 'json',
+      data: {
+      email: email,
+      id: id,
+      asignatura: asignatura,
+      pass: pass
+      },
+      success: function(data){
+        if(data.resp){
+          var cont = 0;
+          var cantidad = data.cantidad;
+
+          $.each( data.datos, function( key, value ) {
+            cont++;
+            text_html ='<tr>';
+            text_html +='<td>'+cont+'</td>';
+            text_html +='<td>'+value.nota+'</td>'; //idNota
+            text_html +='<td><input type="checkbox" id="'+cont+'" name="'+value.idNota+'"></td>'; // value="Bike"
+            text_html +='</tr>';
+            $('#tablaNotasEliminar').append(text_html);
+            //$("#"+cont+"").val(value.nota);
+            //Pruebas --> Funciona :3
+            console.log($("#"+cont).attr("name"));
+          });
+
+          localStorage.setItem("cantidadDeNotasEliminar", cont);
+          console.log("cantidadDeNotas: " + localStorage.getItem("cantidadDeNotasEliminar"));
+        }else{
+          //alert('ERROR');
+          $.toast({
+            text : "<h2>ERROR</h2>",
+            showHideTransition : 'slide',  // It can be plain, fade or slide
+            icon: 'error',
+            bgColor : 'dark-red',              // Background color for toast
+            textColor : '#eee',            // text color
+            allowToastClose : false,       // Show the close button or not
+            hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+            stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+            textAlign : 'left',            // Alignment of text i.e. left, right, center
+            position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+          })
+        }
+      },
+      error: function(){
+        //alert('ERROR 2');
+        $.toast({
+            text : "<h2>ERROR 2</h2>",
+            showHideTransition : 'slide',  // It can be plain, fade or slide
+            icon: 'error',
+            bgColor : 'dark-red',              // Background color for toast
+            textColor : '#eee',            // text color
+            allowToastClose : false,       // Show the close button or not
+            hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+            stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+            textAlign : 'left',            // Alignment of text i.e. left, right, center
+            position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+        })
+      }
+    });
+  }else {
+    //alert('Debe iniciar sesión');
+    $.toast({
+            text : "<h2>Debe iniciar sesión</h2>",
+            showHideTransition : 'slide',  // It can be plain, fade or slide
+            icon: 'warning',
+            bgColor : 'dark-red',              // Background color for toast
+            textColor : '#eee',            // text color
+            allowToastClose : false,       // Show the close button or not
+            hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+            stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+            textAlign : 'left',            // Alignment of text i.e. left, right, center
+            position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+        })
+    document.location="login.html"
+  }
+}
+
+function eliminarNotas() {
+  for (var j = 1; j <= localStorage.getItem("cantidadDeNotasEliminar"); j++) {
+    console.log("idNota: "+$("#"+j).attr("name"));
+    console.log("valor checkbox: "+$("#"+j).prop('checked'));
+    console.log("--------");
+
+    if ($("#"+j).prop('checked') == true) {
+
+      if(localStorage.getItem("email") !== null && localStorage.getItem("pass") !== null && localStorage.getItem("alumnoAAN") !== null && localStorage.getItem("asignatura") !== null){
+        var email = localStorage.getItem("email");
+        var pass = localStorage.getItem("pass");
+        var id = localStorage.getItem("alumnoAEliN");
+        //var asignatura = localStorage.getItem("asignatura");
+        //var notaAEditar = $("#"+j).val();
+        var idNotaAEliminar = $("#"+j).attr("name");
+        //console.log("idNota: "+idNota+", nota: "+notaAEditar);
+        if ($("#"+j).prop('checked') == true) { //es solo por ahora, despues lo elimino
+          $.ajax({
+            url: 'http://sapo2018.000webhostapp.com/eliminarNota.php',
+            method: 'POST',
+            dataType: 'json',
+            data: {
+            email: email,
+            id: id,
+            //notaAEditar: notaAEditar,
+            idNotaAEliminar: idNotaAEliminar,
+            //asignatura: asignatura,
+            pass: pass
+            },
+            success: function(data){
+              if(data.resp){
+
+                $.toast({
+                  text : "<h2>NOTA ELIMINADA EXITOSAMENTE</h2>",
+                  showHideTransition : 'slide',  // It can be plain, fade or slide
+                  icon: 'success',
+                  bgColor : 'dark-red',              // Background color for toast
+                  textColor : '#eee',            // text color
+                  allowToastClose : false,       // Show the close button or not
+                  hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+                  stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+                  textAlign : 'left',            // Alignment of text i.e. left, right, center
+                  position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+               });
+               $('#myModalAgregarNota').modal('hide'); //solo de prueba
+              }else{
+                //alert('ERROR');
+                $.toast({
+                  text : "<h2>ERROR</h2>",
+                  showHideTransition : 'slide',  // It can be plain, fade or slide
+                  icon: 'error',
+                  bgColor : 'dark-red',              // Background color for toast
+                  textColor : '#eee',            // text color
+                  allowToastClose : false,       // Show the close button or not
+                  hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+                  stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+                  textAlign : 'left',            // Alignment of text i.e. left, right, center
+                  position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+               });
+              }
+            },
+            error: function(){
+              //alert('WS NO RESPONDE');
+              $.toast({
+                text : "<h2>WS NO RESPONDE</h2>",
+                showHideTransition : 'slide',  // It can be plain, fade or slide
+                icon: 'warning',
+                bgColor : 'dark-red',              // Background color for toast
+                textColor : '#eee',            // text color
+                allowToastClose : false,       // Show the close button or not
+                hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+                stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+                textAlign : 'left',            // Alignment of text i.e. left, right, center
+                position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+            });
+            }
+          });
+        }else {
+          $.toast({
+              text : "<h2>DEBE INGRESAR UNA NOTA</h2>",
+              showHideTransition : 'slide',  // It can be plain, fade or slide
+              icon: 'warning',
+              bgColor : 'dark-red',              // Background color for toast
+              textColor : '#eee',            // text color
+              allowToastClose : false,       // Show the close button or not
+              hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+              stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+              textAlign : 'left',            // Alignment of text i.e. left, right, center
+              position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+          });
+        }
+      }else {
+        //alert('Debe iniciar sesión');
+        $.toast({
+          text : "<h2>Debe iniciar sesión</h2>",
+          showHideTransition : 'slide',  // It can be plain, fade or slide
+          icon: 'warning',
+          bgColor : 'dark-red',              // Background color for toast
+          textColor : '#eee',            // text color
+          allowToastClose : false,       // Show the close button or not
+          hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+          stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+          textAlign : 'left',            // Alignment of text i.e. left, right, center
+          position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+      });
+        document.location="login.html"
+      }
+
+    }
+
   }
 }
