@@ -1,5 +1,5 @@
 <div class="col-md-12">
-				<center><span class="btn btn-primary"><a style="color: white;" onclick="cargar('ingresarApoderado'); cargarAlumnosAgregarApo();">Ingresar Apoderado</a></span></center>
+				<center><span class="btn btn-primary"><a style="color: white;" onclick="cargar('ingresarProfesor'); cargarCursos();">Ingresar Profesor</a></span></center>
 			</div>
 			<!-- <div class="col-md-4">
 				<center><span class="btn btn-primary"><a style="color: white;" href="modificarAviso.html">Modificar Avisos</a></span></center>
@@ -10,7 +10,7 @@
 
       <div style="margin-top: 20px" class="x_panel">
                   <div class="x_title">
-                    <h2>Lista de apoderados</h2>
+                    <h2>Lista de profesores</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -18,15 +18,14 @@
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th>Nombre Apoderado</th>
-                          <th>Nombre Alumno</th>
+                          <th>Nombre</th>
                           <th>Correo</th>
-                          <!-- <th>Contraseña</th> -->
+                          <th>Contraseña</th>
 													<th>Editar</th>
                           <th>Borrar</th>
                         </tr>
                       </thead>
-                      <tbody id="tablaApoderados">
+                      <tbody id="tablaAvisos">
                       </tbody>
                     </table>
 
@@ -34,5 +33,5 @@
                 </div>
         <!-- /page content -->
 				<script type="text/javascript">
-					//cargarApoderados();
+					cargarAvisos();
 				</script>

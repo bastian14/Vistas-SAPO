@@ -57,9 +57,10 @@
                 <h3>Menú Principal</h3>
                 <ul class="nav side-menu">
                   <!-- <li><a href="avisosAdmin.html"><i class="fa fa-bell"></i> Avisos </a> -->
-                  <li><a onclick="cargar('gestionarProfesor');"><i class="fa fa-bell"></i>Gestionar profesor</a></li>
-                  <li><a onclick="cargar('gestionarApoderado');"><i class="fa fa-edit"></i>Gestionar apoderado</a></li>
-                  <li><a onclick="cargar('gestionarCurso');"><i class="fa fa-desktop"></i>Gestionar curso</a></li>
+                  <li><a onclick="cargar('gestionarProfesor');"><i class="fa fa-user"></i>Gestionar profesor</a></li>
+                  <li><a onclick="cargar('gestionarApoderado');"><i class="fa fa-user"></i>Gestionar apoderado</a></li>
+                  <li><a onclick="cargar('gestionarAlumno');"><i class="fa fa-child"></i>Gestionar alumno</a></li>
+                  <li><a onclick="cargar('gestionarCurso');"><i class="fa fa-users"></i>Gestionar curso</a></li>
                 </ul>
               </div>
             </div>
@@ -168,11 +169,20 @@
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
+
+    <!--TOAST-->
+    <script src="js/jquery.toast.min.js"></script>
+    <!--TOAST-->
+    <link rel="stylesheet" type="text/css" href="css/jquery.toast.min.css">
+
     <!-- Función cargar-->
     <script src="js/funciones.js"></script>
     <script src="js/ingresarAviso.js"></script>
     <script src="js/avisosAdmin.js"></script>
     <script src="js/editarAvisos.js"></script>
+
+    <script src="js/gestionarApoderado.js"></script>
+
 
   </body>
 </html>

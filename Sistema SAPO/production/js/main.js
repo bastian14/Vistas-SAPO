@@ -47,12 +47,16 @@ function ingresar(){
         localStorage.setItem("pass", $('#pass').val());
         console.log(localStorage.getItem('pass'));
         switch (data.perfil) { //el servicio web devuelve el perfil del usuario y segun este se inicia el sistema
+          case '0':
+              document.location = "indexUser.html";
+              //console.log("email");
+            break;
           case '1':
               document.location = "indexAdmin.html";
               //console.log("email");
             break;
           case '2':
-              document.location = "indexUser.html";
+              document.location = "indexSuperUser.html";
               //console.log("pass");
             break;
           default:
@@ -109,7 +113,7 @@ function ingresar(){
     someBlock.preloader('remove');
     $('.form-control').attr('disabled', false);
     //--------
-    
+
     $.toast({
       text : "<h2>Campos de información vacios</h2>",
       showHideTransition : 'slide',  // It can be plain, fade or slide
