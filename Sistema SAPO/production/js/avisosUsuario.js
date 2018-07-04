@@ -4,7 +4,7 @@ function cargarAvisos(){
   if(email !== null && pass !== null){
 
     $.ajax({
-      url: 'http://sapo2018.000webhostapp.com/mostrarAvisos.php',
+      url: 'http://sapo2018.000webhostapp.com/mostrarAvisosApoderados.php',
       method: 'POST',
       dataType: 'json',
       data: {
