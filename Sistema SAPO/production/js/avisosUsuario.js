@@ -14,26 +14,19 @@ function cargarAvisos(){
       success: function(data){
         if(data.resp){
           var titulo;
-          var curso;
           var fecha;
           var contenido;
-          var idAviso;
           var cantidad = data.cantidad;
 
           for (var i = 0; i < cantidad; i++) {
             titulo = data.datos[i].titulo;
-            curso = data.datos[i].curso;
             fecha = data.datos[i].fecha;
             contenido = data.datos[i].contenido;
-            idAviso = data.datos[i].idAviso;
-            console.log("titulo: "+titulo+" curso: "+curso+" fecha: "+fecha+" contenido: "+contenido);
+            console.log("titulo: "+titulo+" fecha: "+fecha+" contenido: "+contenido);
             text_html ='<tr>';
             text_html +='<td>'+titulo+'</td>';
-            text_html +='<td>'+curso+'</td>';
             text_html +='<td>'+fecha+'</td>';
             text_html +='<td>'+contenido+'</td>';
-            //text_html +='<td><button onclick="editarAviso(\''+idAviso+'\')" type="button" class="btn btn-warning">Editar</button></td>';
-            //text_html +='<td><button onclick="borrarAviso(\''+idAviso+'\')" type="button" class="btn btn-danger">Eliminar</button></td>';
             text_html +='<tr>';
             $('#tablaAvisos').append(text_html);
           }
