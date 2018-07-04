@@ -46,12 +46,12 @@
             <div class="clearfix"></div>
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              <div class="profile_pic">
-                <img src="images/picture.jpg" alt="..." class="img-circle profile_img">
+              <div class="profile_pic" id="imagenUser">
+                <!-- <img src="images/picture.jpg" alt="..." class="img-circle profile_img"> -->
               </div>
               <div class="profile_info">
                 <span>Bienvenido</span>
-                <h2>Admin</h2>
+                <h2> <span id="nombreUser"></span> </h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -212,6 +212,12 @@
 
     <script src="js/cuotasAdmin.js"></script>
     <script src="js/notasAdmin.js"></script>
+
+    <script src="js/datosMenu.js"></script>
+
+    <script type="text/javascript">
+      cargarDatos();
+    </script>
 
   </body>
 </html>
