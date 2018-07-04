@@ -1,47 +1,23 @@
 
         <!-- page content -->
       <div style="margin-top: 20px" class="x_panel">
-                  <div class="x_title">
-                    <h2>Lista de notas</h2>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th>Alumno</th>
-                          <th>Curso</th>
-                          <th>Asignatura</th>
-                          <th>Evaluación n°</th>
-                          <th>Calificación</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Basthian Henriquez</td>
-                          <td>7 básico</td>
-                          <td>Matematicas</td>
-                          <td>1</td>
-                          <td>4,2</td>
-                        </tr>
-                        <tr>
-                          <td>Basthian Henriquez</td>
-                          <td>7 básico</td>
-                          <td>Lenguaje</td>
-                          <td>1</td>
-                          <td>6,5</td>
-                        </tr>
-                        <tr>
-                          <td>Basthian Henriquez</td>
-                          <td>7 básico</td>
-                          <td>Lenguaje</td>
-                          <td>2</td>
-                          <td>4,5</td>
-                        </tr>
-                      </tbody>
-                    </table>
-
-                  </div>
-                </div>
+        <div class="x_title">
+           <h2>Lista de Notas Parciales</h2>
+           <div class="clearfix"></div>
+        </div>
+           <div class="x_content">
+             <table class="table table-striped">
+               <thead>
+                 <tr>
+                   <th>Evaluación N°</th>
+                   <th>Asignatura</th>
+                   <th>Calificación</th>
+                  </tr>
+               </thead>
+               <tbody id = "tablaNotas">
+               </tbody>
+             </table>
+            </div>
+      </div>
         <!-- /page content -->
+<script type="text/javascript">cargarNotasUsuario();</script>

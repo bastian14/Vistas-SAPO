@@ -2,7 +2,7 @@
 
       <div style="margin-top: 20px" class="x_panel">
                   <div class="x_title">
-                    <h2>Lista de avisos</h2>
+                    <h2>Lista de Anotaciones</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -12,33 +12,16 @@
                         <tr>
                           <th>Título</th>
                           <th>Curso</th>
-                          <th>Alumno</th>
                           <th>Fecha</th>
                           <th>Tipo</th>
                           <th>Comentario</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
-                          <td>Dibujo Obsceno</td>
-                          <td>7 básico</td>
-                          <td>Basthian Henriquez</td>
-                          <td>10/20/2018</td>
-                          <td>Negativa</td>
-                          <td>Alumno dibuja "asomado" en el cuaderno de un compañere de clases</td>
-                        </tr>
-
-                        <tr>
-                          <td>Limpia sala de clases</td>
-                          <td>7 básico</td>
-                          <td>Basthian Henriquez</td>
-                          <td>04/25/2018</td>
-                          <td>Positiva</td>
-                          <td>Alumno se queda después de clases a recoger los papeles y barrer la sala</td>
-                        </tr>
+                      <tbody id="tablaAnotaciones">
                       </tbody>
                     </table>
 
                   </div>
                 </div>
         <!-- /page content -->
+<script type="text/javascript">cargarAnotacionesUsuario();</script>
