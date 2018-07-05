@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
+    <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,29 +10,15 @@
     <title>SAPO</title>
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
     <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
     <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- iCheck -->
     <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-    <!-- bootstrap-progressbar -->
     <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <!-- JQVMap -->
     <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
-    <!-- bootstrap-daterangepicker -->
     <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-    <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
-
-    <!-- CALENDARIO-->
-    <link href="../vendors/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
-    <link href="../vendors/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print">
-
     <!--TOAST-->
     <link rel="stylesheet" type="text/css" href="css/jquery.toast.min.css">
-
-
   </head>
 
   <body class="nav-md">
@@ -44,18 +30,16 @@
               <a href="indexAdmin.html" class="site_title"><img src="images/sapo-icon.png"><span>S.APO</span></a>
             </div>
             <div class="clearfix"></div>
-            <!-- menu profile quick info -->
+            <!-- menu profile -->
             <div class="profile clearfix">
               <div class="profile_pic" id="imagenUser">
-                <!-- <img src="images/picture.jpg" alt="..." class="img-circle profile_img"> -->
               </div>
               <div class="profile_info">
                 <span>Bienvenido</span>
                 <h2> <span id="nombreUser"></span> </h2>
               </div>
             </div>
-            <!-- /menu profile quick info -->
-            <br />
+            <!-- /menu profile -->
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
@@ -65,12 +49,7 @@
                   <li><a onclick="cargar('avisosAdmin');"><i class="fa fa-bell"></i>Avisos</a></li>
                   <li><a><i class="fa fa-edit"></i>Reuniones<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <!-- <li><a onclick="cargar('calendarAdmin2');">Calendario</a></li> -->
                       <li><a onclick="cargar('acuerdosTomadosAdmin');">Acuerdos Tomados</a></li>
-                      <!--<li><a href="form_validation.html">Votaciones</a></li>
-                      <li><a href="form_wizards.html">Form Wizard</a></li>
-                      <li><a href="form_upload.html">Form Upload</a></li>
-                      <li><a href="form_buttons.html">Form Buttons</a></li>-->
                     </ul>
                   </li>
                   <li><a onclick="cargar('historialDeCuotasAdmin');"><i class="fa fa-desktop"></i> Historial de Cuotas</a></li>
@@ -105,22 +84,6 @@
                   </i>
                 </a>
               </div>
-            <!-- ESTO NO APARECE
-              <ul class="nav navbar-nav navbar-right">
-                <li class="">
-                  <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;">Profile</a></li>
-                    <li>
-                      <a href="javascript:;">
-                        <span class="badge bg-red pull-right">50%</span>
-                        <span>Settings</span>
-                      </a>
-                    </li>
-                    <li><a href="javascript:;">Help</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i>Log Out</a></li>
-                  </ul>
-                </li>
-              </ul>-->
             <!--</nav>-->
           </div>
         </div>
@@ -128,10 +91,61 @@
 
         <!-- page content -->
         <div class="right_col" id="contenido" role="main">
-
+          <div style="margin-top: 20px" class="x_panel">
+            <center><h2>Bienvenido al Sistema de Gestión de Apoderados </h2><h1>S.APO</h1></center>
+            <div class="x_title">
+              
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th><center><h3>Misión</h3></center></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <td>
+                      <center><h4><i>"Gestionamos de manera proactiva a todos los chiquillos de las escuelas o liceos que tengan papases"</i></h4><del><h5> niños del sename abstenerse</h5></del></center>
+                    </td>
+                </tbody>
+              </table>
+            </div>
+            <div class="x_content">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th><center><h3>Visión</h3></center></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <td>
+                      <center><h4><i>"Nuestra meta es llegar a ser reconocidos mundialmente como los mejores gestores de información, y que cuando nos vean en la calle digan: <b>"Ellos si saben manejar los S.APO's"</b>"</i></h4></center>
+                    </td>
+                </tbody>
+              </table>
+            </div>
+            <div class="x_content">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th><center><h3>Valeres Institucienales</h3></center></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <td>
+                      <center><h4>Nuestra empresa premueve:</h4></center>
+                    </td>
+                    <td>
+                      <h4>~ La ebediencia a su lider</h4>
+                      <h4>~ El lenguaje inclusivo</h4>
+                    </td>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
         <!-- /page content -->
-
         <!-- footer content -->
         <footer>
           <div class="pull-right">
@@ -188,18 +202,9 @@
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
-
-    <!-- js preloader
-    <script src="js/jquery.preloader.js"></script>
-    <script src="js/jquery.preloader.min.js"></script>
-      css preloader
-    <link href="css/preloader.css" rel="stylesheet">
-    <link href="css/preloader.scss" rel="stylesheet">
-    -->
     <!--TOAST-->
     <script src="js/jquery.toast.min.js"></script>
-
-    <!-- Función cargar-->
+    <!-- Funciones cargar-->
     <script src="js/funciones.js"></script>
 
     <script src="js/ingresarAviso.js"></script>
