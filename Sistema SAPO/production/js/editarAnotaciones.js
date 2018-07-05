@@ -33,7 +33,8 @@ function cargarDatosEditarAnotacionesAdmin(){
           $('#single_cal1').val(fecha);
           $('#contenidoAnotacionEditarAnotacion').val(contenido);
           cargarAlumnosEditarAnotacionAdmin(curso);
-          cargarAlumnoAnotacion();
+          setTimeout(cargarAlumnoAnotacion(), 2000)
+          //cargarAlumnoAnotacion();
         }else{
           //alert('ERROR');
           $.toast({

@@ -25,7 +25,7 @@ function cargarAnotacionesAdmin(){
           for (var i = 0; i < cantidad; i++) {
             titulo = data.datos[i].titulo;
             curso = data.datos[i].curso;
-            alumno = data.datos[i].alumnoNombre + "" + data.datos[i].alumnoApellido;
+            alumno = data.datos[i].alumnoNombre + " " + data.datos[i].alumnoApellido;
             fecha = data.datos[i].fecha;
             tipo = data.datos[i].tipo;
             contenido = data.datos[i].contenidoAnotacion;
