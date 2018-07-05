@@ -1,10 +1,27 @@
 Para probarlo ir a la siguiente direccion: 
 Sistema SAPO\production 
 
-Datos Admin: 
-lol@lol.cl 
-pass: 1234
+Datos SuperUser (Super usuario)
+username: 	q
+pass: 		q
 
-Datos User: 
-pert@pert.cl 
-pass: 4321
+Datos Admin: (Profesor)
+username: 	test@test.cl 
+pass: 		1234
+
+Datos User (Apoderados): 
+username: 	test2@test2.cl 
+pass: 		1234
+
+username:	pedro@sapo.cl
+pass:		pedro
+
+username:	pablo@sapo.cl
+pass:		pablo
+
+username:	luis@sapo.cl
+pass:		luis
+
+username:	luis@luis.cl
+pass:		luis
+
