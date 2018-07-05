@@ -534,3 +534,135 @@ function cargarInfoEditarApoderado() {
     document.location="login.html"
   }
 }
+
+
+function editarApoderadoSubirInfoGestionar() {
+
+  var nombreApo = $("#nombreApoderado").val();
+  var apellidoApo = $("#apellidoApoderado").val();
+  var alumnoApo = $("#alumnosEditarApoderado").val();
+  var correoApo = $("#correoApoderado").val();
+  var passApo = $("#contraseñaApoderado").val();
+  //var passApo2 = $("#contraseñaApoderado2").val();
+
+  var email = localStorage.getItem("email");
+  var pass = localStorage.getItem("pass");
+  var idUsuarioEdit = localStorage.getItem("idApoderadoEdit");
+
+  console.log("guardo los datos");
+  console.log(nombreApo);
+  console.log(apellidoApo);
+  console.log("id alumno: "+alumnoApo);
+
+
+
+  var data = new FormData();
+
+  data.append("idUsuarioEdit", idUsuarioEdit);
+  data.append("nombreApo", nombreApo);
+  data.append("apellidoApo",apellidoApo);
+  data.append("alumnoApo", alumnoApo);
+  data.append("correoApo",correoApo);
+  data.append("passApo", passApo);
+  data.append("email",email);
+  data.append("pass", pass);
+
+  if(email !== null && pass !== null){
+    if (alumnoApo != "noSeleccionado" && nombreApo.length != 0 && apellidoApo.length != 0 && correoApo.length != 0 && passApo.length != 0) {
+      //console.log(data);
+      $.ajax({
+        url: 'https://sapo2018.000webhostapp.com/editarInfoApoderado.php',
+        method: 'POST',
+        dataType: 'json',
+        contentType: false,
+        data: data,
+        processData: false,
+        cache: false,
+        success: function(data){
+          console.log("good");
+          if(data.resp){
+            //alert("ACUERDO INGRESADO CON EXITO");
+            console.log("success");
+              $.toast({
+                text : "<h2>APODERADO EDITADO CON EXITO</h2>",
+                showHideTransition : 'slide',  // It can be plain, fade or slide
+                icon: 'success',
+                bgColor : 'dark-red',              // Background color for toast
+                textColor : '#eee',            // text color
+                allowToastClose : false,       // Show the close button or not
+                hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+                stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+                textAlign : 'left',            // Alignment of text i.e. left, right, center
+                position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+              });
+            $("#contenido").load("gestionarApoderado.html");
+            //document.location="indexAdmin.html";
+             //cargar('acuerdosTomadosAdmin');
+            }else{
+              console.log("error 1");
+              console.log("Resp. SER: "+data.resp2);
+              //alert("ERROR");
+              $.toast({
+                  text : "<h2>ERROR</h2>",
+                  showHideTransition : 'slide',  // It can be plain, fade or slide
+                  icon: 'error',
+                  bgColor : 'dark-red',              // Background color for toast
+                  textColor : '#eee',            // text color
+                  allowToastClose : false,       // Show the close button or not
+                  hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+                  stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+                  textAlign : 'left',            // Alignment of text i.e. left, right, center
+                  position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+               });
+            }
+          },
+          error: function(){
+            //alert("EL WS NO RESPONDE");
+            console.log("error 2");
+            $.toast({
+              text : "<h2>EL WS NO RESPONDE</h2>",
+              showHideTransition : 'slide',  // It can be plain, fade or slide
+              icon: 'warning',
+              bgColor : 'dark-red',              // Background color for toast
+              textColor : '#eee',            // text color
+              allowToastClose : false,       // Show the close button or not
+              hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+              stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+              textAlign : 'left',            // Alignment of text i.e. left, right, center
+              position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+            });
+          }
+        });
+        console.log("Post ajax");
+      }else {
+        //alert('DEBE LLENAR TODOS LOS CAMPOS DE INFORMACION');
+        $.toast({
+          text : "<h2>DEBE LLENAR TODOS LOS CAMPOS DE INFORMACION</h2>",
+          showHideTransition : 'slide',  // It can be plain, fade or slide
+          icon: 'warning',
+          bgColor : 'dark-red',              // Background color for toast
+          textColor : '#eee',            // text color
+          allowToastClose : false,       // Show the close button or not
+          hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+          stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+          textAlign : 'left',            // Alignment of text i.e. left, right, center
+          position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+        });
+      }
+    }else {
+      //alert('DEBE INICIAR SESIÓN');
+      $.toast({
+        text : "<h2>DEBE INICIAR SESIÓN</h2>",
+        showHideTransition : 'slide',  // It can be plain, fade or slide
+        icon: 'warning',
+        bgColor : 'dark-red',              // Background color for toast
+        textColor : '#eee',            // text color
+        allowToastClose : false,       // Show the close button or not
+        hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+        stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+        textAlign : 'left',            // Alignment of text i.e. left, right, center
+        position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+      });
+      document.location="login.html"
+    }
+}
