@@ -22,8 +22,8 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="curso">Curso<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control" id="cursosAnotaciones">
-                            <option>Seleccione curso</option>
+                          <select class="form-control" id="cursosIngresarAnotacionesAdmin" onchange="cargarAlumnosIngresarAnotacion(this.value);">
+                            <option>Seleccione el curso</option>
 
                           </select>
                         </div>
@@ -33,19 +33,8 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="titulo">Alumno<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control" id="alumnosAnotaciones">
+                          <select class="form-control" id="alumnosIngresarAnotaciones">
                             <option value="noSeleccionado">Seleccione el alumno</option>
-
-                            <!-- <option>Juanito Perez</option>
-                            <option>Basthian Henriquez</option>
-                            <option>Guillermo Pascual</option>
-                            <option>Adria Grau</option>
-                            <option>Mateo Diaz</option>
-                            <option>Cristian Gil</option>
-                            <option>Carla Cortes</option>
-                            <option>Lara Gallardo</option>
-                            <option>Martina Guerrero</option>
-                            <option>Isabel Alonso</option> -->
                           </select>
                         </div>
                       </div>
@@ -71,10 +60,10 @@
                       </div>
 
                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" id="contenidoAnotacion" for="contenido">Contenido<span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contenido">Contenido<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <textarea class="form-control" rows="5" placeholder="Escriba aqui el contenido de la anotación" col-md-7 col-xs-12></textarea>
+                          <textarea class="form-control" rows="5" placeholder="Escriba aqui el contenido de la anotación" id="contenidoIngresarAnotacion" col-md-7 col-xs-12></textarea>
                         </div>
                       </div>
 
@@ -83,10 +72,14 @@
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                           <button class="btn btn-primary" onclick="cargar('anotacionesAdmin');" type="button">Cancelar</button>
                           <button class="btn btn-primary" type="reset">Limpiar</button>
-                          <button type="submit" class="btn btn-success">Ingresar</button>
+                          <button type="submit" class="btn btn-success" onclick="subirAnotacion();">Ingresar</button>
                         </div>
                       </div>
 
                     </div>
                   </div>
         <!-- /page content -->
+
+            <script type="text/javascript">
+              cargarCursosIngresarAnotacionesAdmin();
+            </script>

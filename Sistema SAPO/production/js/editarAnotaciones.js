@@ -1,9 +1,8 @@
-function cargarDatosEditarAnotaciones(){
+function cargarDatosEditarAnotacionesAdmin(){
   var email = localStorage.getItem("email");
   var pass = localStorage.getItem("pass");
-  var id = localStorage.getItem("idAcuerdoEdit");
+  var id = localStorage.getItem("idAnotacionEdit");
   if(email !== null && pass !== null && id != null){
-
     $.ajax({
       url: 'http://sapo2018.000webhostapp.com/editarAnotaciones.php',
       method: 'POST',
@@ -17,18 +16,18 @@ function cargarDatosEditarAnotaciones(){
         if(data.resp){
           var titulo = data.datos.titulo;
           var curso = data.datos.idCurso;
-          var alumno = data.datos.alumno;
+          //var alumno = data.datos.alumno;
           var tipo = data.datos.tipo;
           var fecha = data.datos.fecha;
           var contenido = data.datos.contenido;
-          console.log("titulo: "+titulo+"idcurso: "+curso+"alumno: "+alumno+"fecha: "+fecha+"tipo: "+tipo+"contenido: "+contenido);
+          console.log("titulo: "+titulo+"\nidcurso: "+curso+"\nfecha: "+fecha+"\ntipo: "+tipo+"\ncontenido: "+contenido);
           $('#titulo').val(titulo);
-          $('alumno').val(alumno);
-          $('tipo').val(tipo);
-          $('#cursos').val(curso);
+          //$('alumnosEditarAnotacionesAdmin').val(alumno);
+          $('tipoDeAnotacionEditarA').val(tipo);
+          $('#cursosEditarAnotaciones').val(curso);
           $('#single_cal1').val(fecha);
-          $('#contenidoAnotacion').val(contenido);
-
+          $('#contenidoAnotacionEditarAnotacion').val(contenido);
+          cargarAlumnosEditarAnotacionAdmin(curso);
         }else{
           //alert('ERROR');
           $.toast({
@@ -46,9 +45,9 @@ function cargarDatosEditarAnotaciones(){
         }
       },
       error: function(){
-        //alert('ERROR 2'); 
+        //alert('ERROR 2');
         $.toast({
-          text : "<h2>ERROR 2</h2>",
+          text : "<h2>ERROR AL CARGAR LOS DATOS</h2>",
           showHideTransition : 'slide',  // It can be plain, fade or slide
           icon: 'error',
           bgColor : 'dark-red',              // Background color for toast
@@ -62,7 +61,7 @@ function cargarDatosEditarAnotaciones(){
       }
     });
   }else {
-    //alert('Debe iniciar sesión'); 
+    //alert('Debe iniciar sesión');
     $.toast({
       text : "<h2>Debe iniciar sesión</h2>",
       showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -79,10 +78,11 @@ function cargarDatosEditarAnotaciones(){
   }
 }
 
-function cargarCursosEditarAnotaciones(){
+function cargarCursosEditarAnotacionesAdmin(){
   if(localStorage.getItem("email") !== null && localStorage.getItem("pass") !== null){
     var email = localStorage.getItem("email");
     var pass = localStorage.getItem("pass");
+
     $.ajax({
       url: 'http://sapo2018.000webhostapp.com/seleccionarCurso.php',
       method: 'POST',
@@ -100,11 +100,11 @@ function cargarCursosEditarAnotaciones(){
           $.each( data.datos, function( key, value ) {
             console.log(value);
             text_html ='<option value="'+value.idCurso+'">'+value.grado+'</option>';
-            $('#cursos').append(text_html);
+            $('#cursosEditarAnotaciones').append(text_html);
           });
-
+          cargarDatosEditarAnotacionesAdmin();
         }else{
-          //alert('ERROR'); 
+          //alert('ERROR');
           $.toast({
             text : "<h2>ERROR</h2>",
             showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -118,10 +118,9 @@ function cargarCursosEditarAnotaciones(){
             position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
           })
         }
-        cargarDatos();
       },
       error: function(){
-        //alert('WS NO RESPONDE'); 
+        //alert('WS NO RESPONDE');
         $.toast({
           text : "<h2>WS NO RESPONDE</h2>",
           showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -155,14 +154,162 @@ function cargarCursosEditarAnotaciones(){
 }
 
 
+function cargarAlumnosEditarAnotacionAdmin(idCurso) {
+  document.getElementById('alumnosEditarAnotacionesAdmin').innerHTML = '<option value="noSeleccionado">Elija un alumno</option>';
+  if(localStorage.getItem("email") !== null && localStorage.getItem("pass") !== null && idCurso !== null){
+    var email = localStorage.getItem("email");
+    var pass = localStorage.getItem("pass");
+
+    $.ajax({
+      url: 'http://sapo2018.000webhostapp.com/seleccionarAlumno2.php',
+      method: 'POST',
+      dataType: 'json',
+      data: {
+      email: email,
+      idCurso: idCurso,
+      pass: pass
+      },
+      success: function(data){
+        if(data.resp){
+          $.each( data.datos, function( key, value ) {
+            console.log(value);
+            text_html ='<option value="'+value.idAlumno+'">'+value.nombreAlumno+" "+value.apellidoAlumno+'</option>';
+            $('#alumnosEditarAnotacionesAdmin').append(text_html);
+          });
+
+          cargarAlumnoAnotacion();
+          //setTimeout(cargarAlumnoAnotacion, 5000);
+        }else{
+          //alert('ERROR');
+          $.toast({
+            text : "<h2>ERROR AL CARGAR ALUMNO</h2>",
+            showHideTransition : 'slide',  // It can be plain, fade or slide
+            icon: 'error',
+            bgColor : 'dark-red',              // Background color for toast
+            textColor : '#eee',            // text color
+            allowToastClose : false,       // Show the close button or not
+            hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+            stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+            textAlign : 'left',            // Alignment of text i.e. left, right, center
+            position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+         });
+        }
+      },
+      error: function(){
+        //alert('WS NO RESPONDE');
+        $.toast({
+          text : "<h2>WS NO RESPONDE</h2>",
+          showHideTransition : 'slide',  // It can be plain, fade or slide
+          icon: 'warning',
+          bgColor : 'dark-red',              // Background color for toast
+          textColor : '#eee',            // text color
+          allowToastClose : false,       // Show the close button or not
+          hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+          stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+          textAlign : 'left',            // Alignment of text i.e. left, right, center
+          position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+      });
+      }
+    });
+  }else {
+    //alert('Debe iniciar sesión');
+    $.toast({
+      text : "<h2>Debe iniciar sesión</h2>",
+      showHideTransition : 'slide',  // It can be plain, fade or slide
+      icon: 'warning',
+      bgColor : 'dark-red',              // Background color for toast
+      textColor : '#eee',            // text color
+      allowToastClose : false,       // Show the close button or not
+      hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+      stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+      textAlign : 'left',            // Alignment of text i.e. left, right, center
+      position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+  });
+    document.location="login.html"
+  }
+}
+//-----------------------------------------INICIO-----------------------------------------------------------
+
+  function cargarAlumnoAnotacion(){
+    var email = localStorage.getItem("email");
+    var pass = localStorage.getItem("pass");
+    var id = localStorage.getItem("idAnotacionEdit");
+    if(email !== null && pass !== null && id != null){
+      console.log("uff uff");
+      $.ajax({
+        url: 'http://sapo2018.000webhostapp.com/seleccionarAlumnoEditarAnotaciones.php',
+        method: 'POST',
+        dataType: 'json',
+        data: {
+        email: email,
+        id: id,
+        pass: pass
+        },
+        success: function(data){
+          if(data.resp){
+            var alumno = data.idAlumno;
+            console.log("alumno ID: "+alumno);
+            $('alumnosEditarAnotacionesAdmin').val(data.idAlumno);
+          }else{
+            //alert('ERROR');
+            $.toast({
+              text : "<h2>ERROR</h2>",
+              showHideTransition : 'slide',  // It can be plain, fade or slide
+              icon: 'error',
+              bgColor : 'dark-red',              // Background color for toast
+              textColor : '#eee',            // text color
+              allowToastClose : false,       // Show the close button or not
+              hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+              stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+              textAlign : 'left',            // Alignment of text i.e. left, right, center
+              position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+            })
+          }
+        },
+        error: function(){
+          //alert('ERROR 2');
+          $.toast({
+            text : "<h2>ERROR 2</h2>",
+            showHideTransition : 'slide',  // It can be plain, fade or slide
+            icon: 'error',
+            bgColor : 'dark-red',              // Background color for toast
+            textColor : '#eee',            // text color
+            allowToastClose : false,       // Show the close button or not
+            hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+            stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+            textAlign : 'left',            // Alignment of text i.e. left, right, center
+            position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+          })
+        }
+      });
+    }else {
+      //alert('Debe iniciar sesión');
+      $.toast({
+        text : "<h2>Debe iniciar sesión</h2>",
+        showHideTransition : 'slide',  // It can be plain, fade or slide
+        icon: 'warning',
+        bgColor : 'dark-red',              // Background color for toast
+        textColor : '#eee',            // text color
+        allowToastClose : false,       // Show the close button or not
+        hideAfter : 2000,              // `false` to make it sticky or time in miliseconds to hide after
+        stack : 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+        textAlign : 'left',            // Alignment of text i.e. left, right, center
+        position : 'top-right'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+      })
+      document.location="login.html"
+    }
+  }
+
+//------------------------------------------ FIN ----------------------------------------------------------
+
 function subirAnotacionEditada(){
   var titulo = $("#titulo").val();
-  var curso = $("#cursos").val();
-  var alumno = $("#alumno").val();
-  var tipo = $("#tipo").val();
+  var curso = $("#cursosEditarAnotaciones").val();
+  var alumno = $("#alumnosEditarAnotacionesAdmin").val();
+  var tipo = $("#tipoDeAnotacionEditarA").val();
   var fecha = new Date();
   fecha = $("#single_cal1").val();
-  var contenido = $("#contenidoAnotacion").val();
+  var contenido = $("#contenidoAnotacionEditarAnotacion").val();
 
   var email = localStorage.getItem("email");
   var pass = localStorage.getItem("pass");
@@ -175,7 +322,7 @@ function subirAnotacionEditada(){
   console.log(fecha);
   console.log(curso);
   if(email !== null && pass !== null && id != null){
-    if (titulo !== null && curso !== null && fecha !== null && contenido !== null alumno !== null tipo !== null) {
+    if (titulo !== null && curso != "noSeleccionado" && fecha !== null && contenido !== null && alumno != "noSeleccionado" && tipo !== null) {
 
       $.ajax({
         url: 'http://sapo2018.000webhostapp.com/editarInfoAnotacion.php',
@@ -194,7 +341,7 @@ function subirAnotacionEditada(){
         },
         success: function(data){
           if(data.resp){
-            //alert("ANOTACION EDITADA CON EXITO"); 
+            //alert("ANOTACION EDITADA CON EXITO");
             $.toast({
               text : "<h2>ANOTACION EDITADA CON EXITO</h2>",
               showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -211,7 +358,7 @@ function subirAnotacionEditada(){
             //document.location="indexAdmin.html";
             }else{
               console.log(data.resp2);
-              //alert("ERROR"); 
+              //alert("ERROR");
               $.toast({
                 text : "<h2>ERROR</h2>",
                 showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -227,7 +374,7 @@ function subirAnotacionEditada(){
             }
           },
           error: function(){
-            //alert("EL WS NO RESPONDE"); 
+            //alert("EL WS NO RESPONDE");
              $.toast({
               text : "<h2>EL WS NO RESPONDE</h2>",
               showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -243,7 +390,7 @@ function subirAnotacionEditada(){
           }
         });
       }else {
-        //alert('DEBE LLENAR TODOS LOS CAMPOS DE INFORMACION'); 
+        //alert('DEBE LLENAR TODOS LOS CAMPOS DE INFORMACION');
         $.toast({
           text : "<h2>DEBE LLENAR TODOS LOS CAMPOS DE INFORMACION</h2>",
           showHideTransition : 'slide',  // It can be plain, fade or slide
@@ -258,7 +405,7 @@ function subirAnotacionEditada(){
         })
       }
     }else {
-      //alert('DEBE INICIAR SESIÓN'); 
+      //alert('DEBE INICIAR SESIÓN');
       $.toast({
         text : "<h2>DEBE INICIAR SESIÓN</h2>",
         showHideTransition : 'slide',  // It can be plain, fade or slide
