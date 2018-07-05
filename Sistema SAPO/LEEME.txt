@@ -1,5 +1,6 @@
 Para probarlo ir a la siguiente direccion: 
-Sistema SAPO\production 
+	Sistema SAPO\production
+http://localhost/Vistas-SAPO/Sistema%20SAPO/production/login.html
 
 Datos SuperUser (Super usuario)
 username: 	q
