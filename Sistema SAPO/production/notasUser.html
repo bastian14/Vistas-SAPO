@@ -1,23 +1,33 @@
+  <!-- page content -->
+<div class="col-md-3">
+  <select class="form-control" id="notasAsignaturas" >
+    <option value="noSeleccionado">Seleccione una asignatura</option>
+  </select>
+</div>
 
-        <!-- page content -->
-      <div style="margin-top: 20px" class="x_panel">
-        <div class="x_title">
-           <h2>Lista de Notas Parciales</h2>
-           <div class="clearfix"></div>
-        </div>
-           <div class="x_content">
-             <table class="table table-striped">
-               <thead>
-                 <tr>
-                   <th>Evaluación N°</th>
-                   <th>Asignatura</th>
-                   <th>Calificación</th>
-                  </tr>
-               </thead>
-               <tbody id = "tablaNotas">
-               </tbody>
-             </table>
-            </div>
-      </div>
-        <!-- /page content -->
-<script type="text/javascript">cargarNotasUsuario();</script>
+<div class="col-md-3">
+ <center><span class="btn btn-primary"><a style="color: white;" onclick="cargarNotasUsuario()">Cargar tabla</a></span></center>
+</div>
+
+<div style="margin-top: 20px" class="x_panel">
+  <div class="x_title">
+     <h2>Lista de Notas Parciales</h2>
+     <div class="clearfix"></div>
+  </div>
+     <div class="x_content">
+       <table class="table table-striped">
+         <thead>
+           <tr>
+             <th>Evaluación N°</th>
+             <th>Calificación</th>
+           </tr>
+         </thead>
+         <tbody id = "tablaNotas">
+         </tbody>
+         <tbody id = "tablaPromedio">
+         </tbody>
+       </table>
+    </div>
+</div>
+   <!-- /page content -->
+<script type="text/javascript">cargarAsignaturasUsuario();</script>
