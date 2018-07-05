@@ -23,11 +23,17 @@ function cargarDatosEditarAnotacionesAdmin(){
           console.log("titulo: "+titulo+"\nidcurso: "+curso+"\nfecha: "+fecha+"\ntipo: "+tipo+"\ncontenido: "+contenido);
           $('#titulo').val(titulo);
           //$('alumnosEditarAnotacionesAdmin').val(alumno);
-          $('tipoDeAnotacionEditarA').val(tipo);
-          $('#cursosEditarAnotaciones').val(curso);
+          //$('tipoDeAnotacionEditarA').val(tipo);
+          //$('#tipoDeAnotacionEditarA option[value="0"]').attr("selected", true);
+          document.ready = document.getElementById("tipoDeAnotacionEditarA").value = tipo;
+
+          //$('#cursosEditarAnotaciones').val(curso);
+          document.ready = document.getElementById("cursosEditarAnotaciones").value = curso;
+
           $('#single_cal1').val(fecha);
           $('#contenidoAnotacionEditarAnotacion').val(contenido);
           cargarAlumnosEditarAnotacionAdmin(curso);
+          cargarAlumnoAnotacion();
         }else{
           //alert('ERROR');
           $.toast({
@@ -177,7 +183,7 @@ function cargarAlumnosEditarAnotacionAdmin(idCurso) {
             $('#alumnosEditarAnotacionesAdmin').append(text_html);
           });
 
-          cargarAlumnoAnotacion();
+
           //setTimeout(cargarAlumnoAnotacion, 5000);
         }else{
           //alert('ERROR');
@@ -249,7 +255,8 @@ function cargarAlumnosEditarAnotacionAdmin(idCurso) {
           if(data.resp){
             var alumno = data.idAlumno;
             console.log("alumno ID: "+alumno);
-            $('alumnosEditarAnotacionesAdmin').val(data.idAlumno);
+            document.ready = document.getElementById("alumnosEditarAnotacionesAdmin").value = alumno;
+            //$('alumnosEditarAnotacionesAdmin').val(data.idAlumno);
           }else{
             //alert('ERROR');
             $.toast({
@@ -322,7 +329,7 @@ function subirAnotacionEditada(){
   console.log(fecha);
   console.log(curso);
   if(email !== null && pass !== null && id != null){
-    if (titulo !== null && curso != "noSeleccionado" && fecha !== null && contenido !== null && alumno != "noSeleccionado" && tipo !== null) {
+    if (titulo !== null && curso != "noSeleccionado" && fecha !== null && contenido !== null && alumno != "noSeleccionado" && tipo != "noSeleccionado") {
 
       $.ajax({
         url: 'http://sapo2018.000webhostapp.com/editarInfoAnotacion.php',
